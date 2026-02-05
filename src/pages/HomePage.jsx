@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 import SpaceScene from "../components/SpaceScene";
@@ -6,7 +6,7 @@ import ProjectPanel from "../components/ProjectPanel";
 import CenterLogo from "../components/CenterLogo";
 import PhaseBar from "../components/PhaseBar";
 import LocationPanel from "../components/LocationPanel";
-
+import { supabase } from "../utils/supabase";
 import space from "../assets/space.jpg";
 
 import { readPeople, resetPeople, upsertPerson } from "../utils/storage";
@@ -58,6 +58,38 @@ export default function HomePage() {
     () => localStorage.getItem(MY_NAME_KEY) || "",
   );
   const [people, setPeople] = useState(() => readPeople());
+  useEffect(() => {
+    let alive = true;
+
+    (async () => {
+      try {
+        const { data, error } = await supabase
+          .from("visitors")
+          .select("name, created_at")
+          .order("created_at", { ascending: false })
+          .limit(200);
+
+        if (error) {
+          console.error("Supabase select error:", error);
+          return;
+        }
+
+        // Map về đúng format mà buildStarsFromPeople đang dùng: [{ name }]
+        const arr = (data || [])
+          .filter((x) => x?.name)
+          .map((x) => ({ name: x.name }));
+
+        if (alive) setPeople(arr);
+      } catch (e) {
+        console.error("Supabase select exception:", e);
+      }
+    })();
+
+    return () => {
+      alive = false;
+    };
+  }, []);
+
   const [started, setStarted] = useState(false);
 
   // UI
@@ -72,7 +104,7 @@ export default function HomePage() {
 
   const focusMeRef = useRef(null);
 
-  const start = (raw) => {
+  const start = async (raw) => {
     const n = safeName(raw);
     if (!n) return;
 
@@ -81,11 +113,18 @@ export default function HomePage() {
     localStorage.setItem(MY_NAME_KEY, n);
     setStarted(true);
 
-    // demo: lưu người vào localStorage
+    // ✅ Lưu local (giữ lại để bạn vẫn thấy ngay lập tức)
     const updated = upsertPerson(n);
     setPeople(updated);
 
-    // mở project sau intro
+    // ✅ Lưu lên Supabase (web thật sự “chứa tên người dùng”)
+    try {
+      const { error } = await supabase.from("visitors").insert([{ name: n }]);
+      if (error) console.error("Supabase insert error:", error);
+    } catch (e) {
+      console.error("Supabase insert exception:", e);
+    }
+
     setShowProject(false);
     window.setTimeout(() => setShowProject(true), 2200);
   };

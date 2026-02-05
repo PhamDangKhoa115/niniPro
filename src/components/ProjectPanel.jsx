@@ -9,18 +9,19 @@ export default function ProjectPanel({ show }) {
       ].join(" ")}
       aria-label="Project"
     >
-      <h2 className="text-lg font-extrabold">🚀 Tên dự án </h2>
-      <p className="mt-2 text-sm leading-relaxed text-white/70">
-        khu vực giới thiệu dự án
+      <h2 className="text-lg font-extrabold">🚀 Hành Trình Hy Vọng 2026</h2>
+
+      <p className="mt-2 text-sm text-white/70">
+        Thấu hiểu những vì sao, cùng dệt lên bầu trời hy vọng.
       </p>
 
       <div className="mt-4 grid gap-3 md:grid-cols-[1.3fr_1fr]">
         <div className="rounded-xl border border-white/10 bg-black/20 p-4">
           <h3 className="text-sm font-bold">🎯 Mục tiêu</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-white/70">
-            <li>Vào web → nhập tên → vũ trụ meo.</li>
-            <li>Hiển thị Meo</li>
-            <li>Chuyển mượt sang nội dung dự án về meo.</li>
+            <li>Giới thiệu các địa điểm hỗ trợ trẻ em khuyết tật</li>
+            <li>Kết nối cộng đồng và nguồn lực</li>
+            <li>Lan tỏa sự quan tâm và đồng hành</li>
           </ul>
 
           <div className="mt-3 flex flex-wrap gap-2">
@@ -34,12 +35,11 @@ export default function ProjectPanel({ show }) {
         </div>
 
         <div className="rounded-xl border border-white/10 bg-black/20 p-4">
-          <h3 className="text-sm font-bold">🧩 Tính năng</h3>
+          <h3 className="text-sm font-bold">🧩 Hành trình</h3>
           <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-white/70">
-            <li>Bé mèo hư hỏng</li>
-            <li>Bé mèo dễ thương</li>
-            <li>Bé mèo cute</li>
-            <li>Meo Moe Ome</li>
+            <li>Phase 1 — Định vị những vì sao</li>
+            <li>Phase 2 — Kết nối và dệt sáng</li>
+            <li>Phase 3 — Thắp sáng ngân hà</li>
           </ul>
         </div>
       </div>

@@ -1,0 +1,15 @@
+{
+    "users": [
+        { "id": 1, "name": "Alice", "email": "alice@example.com" },
+        { "id": 2, "name": "Bob", "email": "bob@example.com" },
+        { "id": 3, "name": "Charlie", "email": "charlie@example.com" }
+    ],
+    "ev": [
+        { "id": 1, "event": "Conference", "date": "2023-10-15" },
+        { "id": 2, "event": "Meetup", "date": "2023-11-20" }
+    ],
+    "batteries": [
+        { "id": 1, "type": "AA", "capacity": "2000mAh" },
+        { "id": 2, "type": "AAA", "capacity": "1000mAh" }
+    ]
+}

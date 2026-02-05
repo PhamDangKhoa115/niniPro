@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { fetchVisitors } from "../api/visitors";
 
 import SpaceScene from "../components/SpaceScene";
 import ProjectPanel from "../components/ProjectPanel";
@@ -58,6 +59,18 @@ export default function HomePage() {
     () => localStorage.getItem(MY_NAME_KEY) || "",
   );
   const [people, setPeople] = useState(() => readPeople());
+  useEffect(() => {
+    fetchVisitors().then((rows) => {
+      const list = rows.map((r) => ({
+        name: r.name,
+        firstSeen: Date.now(),
+        lastSeen: Date.now(),
+      }));
+
+      setPeople(list);
+    });
+  }, []);
+
   useEffect(() => {
     let alive = true;
 

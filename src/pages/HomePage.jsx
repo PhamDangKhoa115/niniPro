@@ -91,7 +91,7 @@ export default function HomePage() {
         const arr = (data || [])
           .filter((x) => x?.name)
           .map((x) => ({ name: x.name }));
-
+        console.log("VISITORS FROM SUPABASE:", arr.length, arr.slice(0, 5));
         if (alive) setPeople(arr);
       } catch (e) {
         console.error("Supabase select exception:", e);

@@ -4,10 +4,11 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
-  </StrictMode>
+  </StrictMode>,
 );

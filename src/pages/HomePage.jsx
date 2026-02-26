@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fetchVisitors } from "../api/visitors";
+import { fetchVisitors, upsertVisitor } from "../api/visitors";
 
 import SpaceScene from "../components/SpaceScene";
 import ProjectPanel from "../components/ProjectPanel";

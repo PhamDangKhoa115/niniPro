@@ -186,18 +186,18 @@ export default function HomePage() {
 
       {/* Center Logo (xuất hiện dần) */}
       <motion.div
-        className="fixed left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
+        className="fixed left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
         initial={{
           opacity: 0,
           scale: 0.96,
           y: 10,
           filter: "blur(6px)",
-          x: -175, // bạn đang dùng để canh logo
+          x: -80,
         }}
         animate={
           started
-            ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", x: -175 }
-            : { opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)", x: -175 }
+            ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", x: -170 }
+            : { opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)", x: -80 }
         }
         transition={{ duration: 1.1, ease: "easeOut" }}
       >
@@ -315,14 +315,6 @@ export default function HomePage() {
                 <div className="mt-1 font-extrabold tracking-wide text-white/90">
                   👤 {myName}
                 </div>
-
-                <button
-                  type="button"
-                  className="rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-white/90 hover:bg-white/15 active:scale-[0.98]"
-                  onClick={resetAll}
-                >
-                  Reset
-                </button>
               </div>
 
               <div className="mt-3 flex flex-wrap gap-2">

@@ -5,7 +5,7 @@ export default function CenterLogo() {
       <img
         src={Logo}
         alt="Shoot for the Moon"
-        className="h-[80px] md:h-[110px] w-auto drop-shadow-[0_18px_60px_rgba(0,0,0,0.7)]"
+        className="h-[900px] md:h-[130px] w-auto drop-shadow-[0_18px_60px_rgba(0,0,0,0.7)]"
       />
     </div>
   );

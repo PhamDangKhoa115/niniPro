@@ -148,7 +148,42 @@ export function useSpaceCamera(canvasRef) {
       cam.lastY = e.clientY;
       canvas.setPointerCapture?.(e.pointerId);
     };
+    let pinchStartDist = 0;
+    let pinchStartZoom = 1;
+    let isPinching = false;
+    const getDist = (t1, t2) => {
+      const dx = t1.clientX - t2.clientX;
+      const dy = t1.clientY - t2.clientY;
+      return Math.hypot(dx, dy);
+    };
 
+    const onTouchStart = (e) => {
+      if (e.touches.length === 2) {
+        e.preventDefault();
+        isPinching = true;
+        pinchStartDist = getDist(e.touches[0], e.touches[1]);
+        pinchStartZoom = camRef.current.targetZoom;
+      }
+    };
+
+    const onTouchMove = (e) => {
+      if (!isPinching) return;
+      if (e.touches.length !== 2) return;
+
+      e.preventDefault();
+
+      const dist = getDist(e.touches[0], e.touches[1]);
+      const ratio = dist / Math.max(1, pinchStartDist);
+
+      const cam = camRef.current;
+      flyRef.current.active = false;
+
+      cam.targetZoom = Math.max(0.42, Math.min(2.6, pinchStartZoom * ratio));
+    };
+
+    const onTouchEnd = (e) => {
+      if (e.touches.length < 2) isPinching = false;
+    };
     const onPointerMove = (e) => {
       const cam = camRef.current;
       if (!cam.dragging) return;
@@ -186,7 +221,10 @@ export function useSpaceCamera(canvasRef) {
       cam.targetOffsetX = 0;
       cam.targetOffsetY = 0;
     };
-
+    canvas.addEventListener("touchstart", onTouchStart, { passive: false });
+    canvas.addEventListener("touchmove", onTouchMove, { passive: false });
+    canvas.addEventListener("touchend", onTouchEnd);
+    canvas.addEventListener("touchcancel", onTouchEnd);
     canvas.addEventListener("pointerdown", onPointerDown);
     canvas.addEventListener("pointermove", onPointerMove);
     canvas.addEventListener("pointerup", onPointerUp);
@@ -201,6 +239,10 @@ export function useSpaceCamera(canvasRef) {
       canvas.removeEventListener("pointercancel", onPointerUp);
       window.removeEventListener("wheel", onWheel);
       window.removeEventListener("dblclick", onDblClick);
+      canvas.removeEventListener("touchstart", onTouchStart);
+      canvas.removeEventListener("touchmove", onTouchMove);
+      canvas.removeEventListener("touchend", onTouchEnd);
+      canvas.removeEventListener("touchcancel", onTouchEnd);
     };
   }, [canvasRef]);
 

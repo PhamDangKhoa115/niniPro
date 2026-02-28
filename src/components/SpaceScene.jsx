@@ -49,6 +49,7 @@ export default function SpaceScene({
   useEffect(() => {
     phaseStartRef.current = performance.now();
   }, [activePhase]);
+
   const rippleRef = useRef({
     active: false,
     id: null,
@@ -61,9 +62,25 @@ export default function SpaceScene({
   const [hoveredId, setHoveredId] = useState(null);
   const hoveredRef = useRef(null);
 
+  // ✅ appear animation after started (for people stars + labels)
+  const startedAtRef = useRef(0);
+  const [appearE, setAppearE] = useState(0);
+  const appearERef = useRef(0);
+
   useEffect(() => {
     hoveredRef.current = hoveredId;
   }, [hoveredId]);
+  useEffect(() => {
+    if (started) {
+      startedAtRef.current = performance.now();
+      appearERef.current = 0;
+      setAppearE(0);
+    } else {
+      appearERef.current = 0;
+      setAppearE(0);
+    }
+  }, [started]);
+
   // ✅ camera
   const { camRef, flyTo, applyFly } = useSpaceCamera(canvasRef);
 
@@ -76,7 +93,7 @@ export default function SpaceScene({
 
   // ⭐ Build stars + links
   const { stars, links } = useMemo(() => {
-    const space = buildSpace(constellations, activePhase);
+    const space = buildSpace(constellations || [], activePhase);
     const peopleStars = buildStarsFromPeople(people || [], myName || "");
     return { stars: [...peopleStars, ...space.stars], links: space.links };
   }, [constellations, activePhase, people, myName]);
@@ -102,13 +119,13 @@ export default function SpaceScene({
       onFocusMeRef.current = null;
     };
   }, [onFocusMeRef, stars, flyTo, myName]);
+
+  // ripple when phase advances
   useEffect(() => {
     const prev = prevPhaseRef.current;
     if (activePhase === prev) return;
 
-    // chỉ ripple khi đi tới phase mới (1->2, 2->3)
     if (activePhase > prev) {
-      // chọn constellation đại diện cho phase này
       const newly =
         (constellations || []).find((c) => c.phase === activePhase) || null;
 
@@ -126,6 +143,7 @@ export default function SpaceScene({
 
     prevPhaseRef.current = activePhase;
   }, [activePhase, constellations]);
+
   // ✅ Phase cinematic: center = constellation mới unlock, zoom = fit toàn bộ đã unlock
   useEffect(() => {
     if (!started) return;
@@ -167,8 +185,25 @@ export default function SpaceScene({
       y: (sy - cam.H / 2) / cam.zoom - cam.offsetY,
     });
 
+    const easeOut = (x) => 1 - Math.pow(1 - x, 3);
+
     const draw = (t) => {
       applyFly?.(t);
+
+      // ✅ appear for people after started
+      const appearT = started ? (t - startedAtRef.current) / 900 : 0; // 900ms
+      const appearK = Math.max(0, Math.min(1, appearT));
+      const appear = easeOut(appearK);
+
+      // pop nhẹ (0.75 -> 1.0)
+      const popScale = 0.75 + 0.25 * appear;
+
+      // sync for JSX label layer (throttle)
+      appearERef.current = appear;
+      if (t - (draw._lastAppearUpdate || 0) > 50) {
+        draw._lastAppearUpdate = t;
+        setAppearE(appearERef.current);
+      }
 
       const cam = camRef.current;
       const ripple = rippleRef.current;
@@ -185,6 +220,7 @@ export default function SpaceScene({
           rippleK = Math.max(0, Math.min(1, rippleK));
         }
       }
+
       const focusId = selectedId || hoveredRef.current;
 
       // mood by phase
@@ -202,7 +238,6 @@ export default function SpaceScene({
         if (activePhase > p) return 1;
 
         const tt = Math.min(1, (t - phaseStartRef.current) / 900);
-        const easeOut = (x) => 1 - Math.pow(1 - x, 3);
         return 0.25 + 0.75 * easeOut(tt);
       };
 
@@ -258,13 +293,28 @@ export default function SpaceScene({
         let a2 = baseAlpha * reveal(s);
         if (dimOthers) a2 *= 0.35;
         if (isFocusStar) a2 = Math.min(1, a2 * 1.35);
+
+        // ✅ fade-in people after start
+        if (s.kind === "person") {
+          // delay 0..450ms theo hash tên
+          const seed = (s.name || "").length * 97;
+          const delay = (seed % 450) / 1000; // giây
+          const appearT2 = started
+            ? (t - startedAtRef.current) / 1000 - delay
+            : 0;
+          const k2 = Math.max(0, Math.min(1, appearT2 / 0.9));
+          const appear2 = easeOut(k2);
+
+          a2 *= appear2;
+        }
         ctx.globalAlpha = a2;
 
         const r =
           s.radius *
           cam.zoom *
           (s.kind === "dust" ? 0.6 : s.kind === "person" ? 1.15 : 0.9) *
-          mood.starBoost;
+          mood.starBoost *
+          (s.kind === "person" ? popScale : 1);
 
         const isRippleStar =
           s.kind === "star" && rippleId && s.constellationId === rippleId;
@@ -278,6 +328,7 @@ export default function SpaceScene({
         } else {
           ctx.shadowBlur = 0;
         }
+
         ctx.beginPath();
         ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
 
@@ -295,19 +346,16 @@ export default function SpaceScene({
 
       ctx.shadowBlur = 0;
       ctx.globalAlpha = 1;
+
       // ---------- RIPPLE RING ----------
       if (rippleId && rippleK > 0) {
-        const easeOut = (x) => 1 - Math.pow(1 - x, 3);
         const k = easeOut(rippleK);
-
         const center = worldToScreen(cam, ripple.x, ripple.y);
-
         const radius = (90 + 520 * k) * cam.zoom * 0.55;
 
         ctx.save();
         ctx.globalCompositeOperation = "lighter";
 
-        // outer ring
         ctx.globalAlpha = (1 - k) * 0.55;
         ctx.strokeStyle = "rgba(180,240,255,0.95)";
         ctx.lineWidth = (2.4 + 1.6 * (1 - k)) * cam.zoom * 0.35;
@@ -316,7 +364,6 @@ export default function SpaceScene({
         ctx.arc(center.x, center.y, radius, 0, Math.PI * 2);
         ctx.stroke();
 
-        // inner ring
         ctx.globalAlpha = (1 - k) * 0.28;
         ctx.lineWidth = 1.2 * cam.zoom * 0.35;
 
@@ -326,6 +373,7 @@ export default function SpaceScene({
 
         ctx.restore();
       }
+
       raf = requestAnimationFrame(draw);
     };
 
@@ -418,6 +466,7 @@ export default function SpaceScene({
     camRef,
     activePhase,
     selectedId,
+    started,
   ]);
 
   // ⭐ LABEL LAYER
@@ -432,6 +481,7 @@ export default function SpaceScene({
   );
 
   const focusId = selectedId || hoveredId;
+
   const focusAnchor = useMemo(() => {
     if (!focusId) return null;
     return stars.find(
@@ -467,7 +517,10 @@ export default function SpaceScene({
 
   return (
     <>
-      <canvas ref={canvasRef} className="fixed inset-0 h-full w-full" />
+      <canvas
+        ref={canvasRef}
+        className="fixed inset-0 h-full w-full touch-none select-none"
+      />
 
       {/* LABELS + TOOLTIP */}
       <div className="fixed inset-0 pointer-events-none">
@@ -514,8 +567,8 @@ export default function SpaceScene({
             ].join(" ")}
             style={{
               ...toPx(s.x, s.y),
-              opacity: started ? (phaseTransitioning ? 0 : 1) : 0,
-              transform: "translate(-50%, -50%)",
+              opacity: started ? (phaseTransitioning ? 0 : appearE) : 0,
+              transform: `translate(-50%, -50%) scale(${0.92 + 0.08 * appearE})`,
             }}
           >
             {s.name}

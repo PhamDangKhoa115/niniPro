@@ -10,7 +10,6 @@ import LocationPanel from "../components/LocationPanel";
 import { supabase } from "../utils/supabase";
 import space from "../assets/space.jpg";
 
-import { readPeople, resetPeople, upsertPerson } from "../utils/storage";
 import { safeName } from "../utils/stars";
 
 import { CONSTELLATIONS, PHASES } from "../data/constellations";
@@ -58,7 +57,7 @@ export default function HomePage() {
   const [myName, setMyName] = useState(
     () => localStorage.getItem(MY_NAME_KEY) || "",
   );
-  const [people, setPeople] = useState(() => readPeople());
+  const [people, setPeople] = useState([]);
   useEffect(() => {
     fetchVisitors().then((rows) => {
       const list = rows.map((r) => ({
@@ -126,9 +125,12 @@ export default function HomePage() {
     localStorage.setItem(MY_NAME_KEY, n);
     setStarted(true);
 
-    // ✅ Lưu local (giữ lại để bạn vẫn thấy ngay lập tức)
-    const updated = upsertPerson(n);
-    setPeople(updated);
+    // ✅ Optimistic: thêm tên vừa nhập vào danh sách đang có (từ Supabase)
+    setPeople((prev) => {
+      const lower = n.toLowerCase();
+      const exists = prev.some((p) => (p?.name || "").toLowerCase() === lower);
+      return exists ? prev : [{ name: n }, ...prev];
+    });
 
     // ✅ Lưu lên Supabase (web thật sự “chứa tên người dùng”)
     try {
@@ -186,7 +188,7 @@ export default function HomePage() {
 
       {/* Center Logo (xuất hiện dần) */}
       <motion.div
-        className="fixed left-1/2 top-[46%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
+        className="fixed left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
         initial={{
           opacity: 0,
           scale: 0.96,
@@ -196,7 +198,7 @@ export default function HomePage() {
         }}
         animate={
           started
-            ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", x: -170 }
+            ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", x: -190 }
             : { opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)", x: -80 }
         }
         transition={{ duration: 1.1, ease: "easeOut" }}
@@ -268,80 +270,44 @@ export default function HomePage() {
         )}
       </AnimatePresence>
       {/* CARD nhập tên -> morph góc trái */}
-      <motion.div
-        className="fixed z-50"
-        initial={false}
-        animate={started ? "mini" : "modal"}
-        variants={{
-          modal: { left: "50%", top: "50%", x: "-50%", y: "-50%", scale: 1 },
-          mini: { left: 12, top: 12, x: 0, y: 0, scale: 0.98 },
-        }}
-        transition={{ type: "spring", stiffness: 260, damping: 26 }}
-      >
-        <div className="w-[min(520px,calc(100vw-32px))] rounded-2xl border border-white/15 bg-white/10 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl">
-          {!started ? (
-            <>
-              <p className="text-lg font-extrabold">Chào bạn 👋</p>
-              <p className="mt-1 text-sm leading-relaxed text-white/70">
-                Nhập tên để “đặt dấu” của bạn trên bầu trời.
-              </p>
-
-              <div className="mt-4 flex gap-2">
-                <input
-                  className="flex-1 rounded-xl border border-white/15 bg-black/30 px-3 py-3 text-sm text-white/90 outline-none placeholder:text-white/45 focus:border-cyan-200/40"
-                  value={nameInput}
-                  onChange={(e) => setNameInput(e.target.value)}
-                  placeholder="Nhập tên của bạn"
-                  maxLength={30}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      start(nameInput);
-                    }
-                  }}
-                />
-                <button
-                  type="button"
-                  className="rounded-xl border border-cyan-200/35 bg-cyan-200/15 px-4 py-3 text-sm font-bold text-white/90 hover:bg-cyan-200/20 active:scale-[0.98]"
-                  onClick={() => start(nameInput)}
-                >
-                  Bắt đầu
-                </button>
-              </div>
-            </>
-          ) : (
-            <>
-              <div className="flex items-center justify-between gap-3">
-                <div className="mt-1 font-extrabold tracking-wide text-white/90">
-                  👤 {myName}
-                </div>
-              </div>
-
-              <div className="mt-3 flex flex-wrap gap-2">
-                <button
-                  type="button"
-                  className="rounded-xl border border-white/15 bg-white/10 px-3 py-2 text-xs font-bold text-white/90 hover:bg-white/15 active:scale-[0.98]"
-                  onClick={() => focusMeRef.current?.()}
-                >
-                  Focus (demo)
-                </button>
-
-                <button
-                  type="button"
-                  className="rounded-xl border border-cyan-200/35 bg-cyan-200/15 px-3 py-2 text-xs font-bold text-white/90 hover:bg-cyan-200/20 active:scale-[0.98]"
-                  onClick={() => setShowProject((v) => !v)}
-                >
-                  Dự án
-                </button>
-              </div>
-
-              <div className="mt-3 text-xs text-white/55">
-                Đã lưu {people.length} lượt ghé thăm (demo localStorage).
-              </div>
-            </>
-          )}
+      {!started && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)" }}
+            animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)" }}
+            transition={{ duration: 0.35, ease: "easeOut" }}
+            className="w-full max-w-[520px] rounded-2xl border border-white/15 bg-white/10 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl"
+          >
+            <p className="text-lg font-extrabold">Chào bạn 👋</p>
+            <p className="mt-1 text-sm leading-relaxed text-white/70">
+              Nhập tên để “đặt dấu” của bạn trên bầu trời.
+            </p>
+            <div className="mt-4 flex flex-col gap-2 sm:flex-row">
+              <input
+                className="flex-1 rounded-xl border border-white/15 bg-black/30 px-3 py-3 text-sm text-white/90 outline-none placeholder:text-white/45 focus:border-cyan-200/40"
+                value={nameInput}
+                onChange={(e) => setNameInput(e.target.value)}
+                placeholder="Nhập tên của bạn"
+                maxLength={30}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    e.preventDefault();
+                    start(nameInput);
+                  }
+                }}
+              />
+              <button
+                type="button"
+                className="w-full sm:w-auto rounded-xl border border-cyan-200/35 bg-cyan-200/15 px-4 py-3 text-sm font-bold text-white/90 hover:bg-cyan-200/20 active:scale-[0.98]"
+                onClick={() => start(nameInput)}
+              >
+                Bắt đầu
+              </button>
+            </div>
+          </motion.div>
         </div>
-      </motion.div>
+      )}
 
       {/* Location Info Panel */}
       <LocationPanel

@@ -21,28 +21,28 @@ export const PHASES = [
 
 // Mỗi chòm sao = 1 địa điểm
 export const CONSTELLATIONS = [
-  {
-    id: "hcm-01",
-    name: "Địa điểm A (TP.HCM)",
-    city: "TP.HCM",
-    phase: 1,
-    summary: "Ưu tiên: ít được biết đến • hỗ trợ trẻ em khuyết tật",
-    coords: { x: -380, y: -40 }, // vị trí cụm trong “world space”
-    starCount: 10, // số sao (các em)
-    links: {
-      facebook: "",
-      donate: "",
-    },
-  },
-  {
-    id: "qn-01",
-    name: "Địa điểm B (Quy Nhơn)",
-    city: "Quy Nhơn",
-    phase: 1,
-    summary: "Địa điểm cần được lan tỏa thêm",
-    coords: { x: 420, y: 120 },
-    starCount: 8,
-    links: {},
-  },
+  // {
+  //   id: "hcm-01",
+  //   name: "Địa điểm A (TP.HCM)",
+  //   city: "TP.HCM",
+  //   phase: 1,
+  //   summary: "Ưu tiên: ít được biết đến • hỗ trợ trẻ em khuyết tật",
+  //   coords: { x: -380, y: -40 }, // vị trí cụm trong “world space”
+  //   starCount: 10, // số sao (các em)
+  //   links: {
+  //     facebook: "",
+  //     donate: "",
+  //   },
+  // },
+  // {
+  //   id: "qn-01",
+  //   name: "Địa điểm B (Quy Nhơn)",
+  //   city: "Quy Nhơn",
+  //   phase: 1,
+  //   summary: "Địa điểm cần được lan tỏa thêm",
+  //   coords: { x: 420, y: 120 },
+  //   starCount: 8,
+  //   links: {},
+  // },
   // ... thêm dần
 ];

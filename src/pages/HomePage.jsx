@@ -3,9 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { fetchVisitors } from "../api/visitors";
 
 import SpaceScene from "../components/SpaceScene";
-import ProjectPanel from "../components/ProjectPanel";
+// import ProjectPanel from "../components/ProjectPanel";
 import CenterLogo from "../components/CenterLogo";
-import PhaseBar from "../components/PhaseBar";
+// import PhaseBar from "../components/PhaseBar";
 import LocationPanel from "../components/LocationPanel";
 import { supabase } from "../utils/supabase";
 import space from "../assets/space.jpg";
@@ -165,8 +165,8 @@ export default function HomePage() {
       {/* overlay nhẹ */}
       <div className="absolute inset-0 z-10 bg-black/20" />
 
-      {/* Phase bar (chỉ hiện sau khi started để đúng flow) */}
-      {started && <PhaseBar phase={phase} setPhase={setPhaseCinematic} />}
+      {/* Phase bar (chỉ hiện sau khi started để đúng flow)
+      {started && <PhaseBar phase={phase} setPhase={setPhaseCinematic} />} */}
       {/* 🌟 CANVAS + STARS */}
       <div className="relative z-20">
         <SpaceScene
@@ -360,7 +360,7 @@ export default function HomePage() {
       />
 
       {/* Project Panel */}
-      <ProjectPanel show={showProject && !isPhaseTransitioning} />
+      {/* <ProjectPanel show={showProject && !isPhaseTransitioning} /> */}
     </div>
   );
 }

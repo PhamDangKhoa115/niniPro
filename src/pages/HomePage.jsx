@@ -20,6 +20,15 @@ export default function HomePage() {
   const [bgZoom, setBgZoom] = useState(1);
   const [bgOffset, setBgOffset] = useState({ x: 0, y: 0 });
   const [phaseFx, setPhaseFx] = useState({ active: false, next: null });
+  const [isMobile, setIsMobile] = useState(false);
+  const LOGO_SHIFT_DESKTOP = -200;
+  const LOGO_SHIFT_MOBILE = -70;
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 640); // <640px = mobile (tailwind sm)
+    onResize(); // chạy 1 lần khi mount
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
   const PHASE_META = {
     1: {
       title: "Định Vị Vì Sao",
@@ -188,24 +197,35 @@ export default function HomePage() {
 
       {/* Center Logo (xuất hiện dần) */}
       <motion.div
-        className="fixed left-1/2 top-[42%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
+        className="fixed left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
         initial={{
           opacity: 0,
           scale: 0.96,
           y: 10,
           filter: "blur(6px)",
-          x: -80,
+          x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
         }}
         animate={
           started
-            ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", x: -190 }
-            : { opacity: 0, scale: 0.96, y: 10, filter: "blur(6px)", x: -80 }
+            ? {
+                opacity: 1,
+                scale: 1,
+                y: 0,
+                filter: "blur(0px)",
+                x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
+              }
+            : {
+                opacity: 0,
+                scale: 0.96,
+                y: 10,
+                filter: "blur(6px)",
+                x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
+              }
         }
         transition={{ duration: 1.1, ease: "easeOut" }}
       >
         <CenterLogo />
       </motion.div>
-
       {/* Overlay intro (chỉ khi chưa started) */}
       <AnimatePresence>
         {!started && (

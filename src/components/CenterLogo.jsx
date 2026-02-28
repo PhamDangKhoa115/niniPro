@@ -1,12 +1,12 @@
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/Logo.png";
+
 export default function CenterLogo() {
   return (
-    <div className="pointer-events-none select-none">
-      <img
-        src={Logo}
-        alt="Shoot for the Moon"
-        className="h-[110px] md:h-[160px] w-auto drop-shadow-[0_18px_60px_rgba(0,0,0,0.7)]"
-      />
-    </div>
+    <img
+      src={Logo}
+      alt="Shoot for the Moon"
+      className="h-[110px] sm:h-[150px] w-auto object-contain select-none"
+      draggable={false}
+    />
   );
 }

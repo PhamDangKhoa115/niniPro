@@ -24,7 +24,7 @@ export default function HomePage() {
   const [phaseFx, setPhaseFx] = useState({ active: false, next: null });
   const [isMobile, setIsMobile] = useState(false);
   const navigate = useNavigate();
-  const LOGO_SHIFT_DESKTOP = -400;
+  const LOGO_SHIFT_DESKTOP = -320;
   const LOGO_SHIFT_MOBILE = -70;
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 640); // <640px = mobile (tailwind sm)

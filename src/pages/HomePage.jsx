@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fetchVisitors } from "../api/visitors";
-
+import { useNavigate } from "react-router-dom";
+import StarBurstOverlay from "../components/StarBurstOverlay";
 import SpaceScene from "../components/SpaceScene";
 // import ProjectPanel from "../components/ProjectPanel";
 import CenterLogo from "../components/CenterLogo";
@@ -16,12 +17,14 @@ import { CONSTELLATIONS, PHASES } from "../data/constellations";
 
 export default function HomePage() {
   // background parallax
+  const [warpOut, setWarpOut] = useState(false);
   const MY_NAME_KEY = "moon_my_name_v1";
   const [bgZoom, setBgZoom] = useState(1);
   const [bgOffset, setBgOffset] = useState({ x: 0, y: 0 });
   const [phaseFx, setPhaseFx] = useState({ active: false, next: null });
   const [isMobile, setIsMobile] = useState(false);
-  const LOGO_SHIFT_DESKTOP = -200;
+  const navigate = useNavigate();
+  const LOGO_SHIFT_DESKTOP = -400;
   const LOGO_SHIFT_MOBILE = -70;
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 640); // <640px = mobile (tailwind sm)
@@ -47,7 +50,9 @@ export default function HomePage() {
     },
   };
   const isPhaseTransitioning = phaseFx.active;
-
+  useEffect(() => {
+    console.log("warpOut changed:", warpOut);
+  }, [warpOut]);
   // user
   const setPhaseCinematic = (next) => {
     if (next === phase) return;
@@ -99,7 +104,7 @@ export default function HomePage() {
         const arr = (data || [])
           .filter((x) => x?.name)
           .map((x) => ({ name: x.name }));
-        console.log("VISITORS FROM SUPABASE:", arr.length, arr.slice(0, 5));
+
         if (alive) setPeople(arr);
       } catch (e) {
         console.error("Supabase select exception:", e);
@@ -124,7 +129,37 @@ export default function HomePage() {
   const selected = CONSTELLATIONS.find((c) => c.id === selectedId) || null;
 
   const focusMeRef = useRef(null);
+  // ở đầu HomePage
 
+  const didAutoNavRef = useRef(false);
+
+  useEffect(() => {
+    if (!started) return;
+    if (!myName?.trim()) return;
+    if (didAutoNavRef.current) return;
+
+    didAutoNavRef.current = true;
+
+    const tFocus = window.setTimeout(() => {
+      focusMeRef.current?.();
+    }, 3000);
+
+    // bật overlay sau 5s (tuỳ bạn)
+    const tWarp = window.setTimeout(() => {
+      setWarpOut(true);
+    }, 5000);
+
+    // fallback: nếu overlay không gọi onDone (do lỗi), vẫn chuyển trang sau 9s
+    const tFallbackNav = window.setTimeout(() => {
+      navigate("/mainPage");
+    }, 9500);
+
+    return () => {
+      window.clearTimeout(tFocus);
+      window.clearTimeout(tWarp);
+      window.clearTimeout(tFallbackNav);
+    };
+  }, [started, myName, navigate]);
   const start = async (raw) => {
     const n = safeName(raw);
     if (!n) return;
@@ -160,7 +195,7 @@ export default function HomePage() {
   };
 
   return (
-    <div className="relative h-screen w-screen overflow-hidden bg-slate-950 text-white">
+    <div className="relative h-screen w-screen overflow-hidden bg-slate-950 text-white touch-none">
       {/* 🌌 SPACE BACKGROUND (parallax zoom + pan) */}
       <div
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-75"
@@ -336,7 +371,17 @@ export default function HomePage() {
         phaseTitle={selected ? PHASES[selected.phase - 1]?.title : ""}
         onClose={() => setSelectedId(null)}
       />
-
+      <AnimatePresence>
+        {warpOut && (
+          <StarBurstOverlay
+            key="warp"
+            onDone={() => {
+              setWarpOut(false);
+              navigate("/mainPage");
+            }}
+          />
+        )}
+      </AnimatePresence>
       {/* Project Panel */}
       {/* <ProjectPanel show={showProject && !isPhaseTransitioning} /> */}
     </div>

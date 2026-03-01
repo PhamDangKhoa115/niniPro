@@ -81,7 +81,58 @@ export default function DonatePage() {
         </section>
 
         {/* Bottom pink bar */}
-        <div className="h-12 sm:h-16 bg-brand/60" />
+        <footer className="bg-pink-600 text-white">
+          <div className="mx-auto max-w-[980px] px-4 sm:px-6 py-10">
+            <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
+              <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">
+                {/* Left: QR */}
+                <div className="flex">
+                  <div className="w-full bg-pink-100 rounded-xl"></div>
+                </div>
+
+                {/* Right: Text */}
+                <div className="text-center md:text-center">
+                  <h2 className="text-3xl sm:text-3xl md:text-4xl font-['Times_New_Roman'] tracking-[0.04em] font-extrabold text-white leading-snug">
+                    SiTi Group
+                  </h2>
+                  <p className="mt-6 text-[20px] leading-relaxed text-white font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
+                    <span className="no-underline">Gmail: </span>
+                    <span className="underline">
+                      sitigroup.fptuhcm@gmail.com
+                    </span>
+                  </p>
+                  <div className="mt-6 space-y-5">
+                    {/* Facebook */}
+                    <button
+                      type="button"
+                      className="w-full bg-white text-black 
+               py-3 rounded-lg 
+               font-['Times_New_Roman'] font-semibold text-base
+               border border-black/30
+               transition-all duration-300
+               hover:bg-brand hover:text-white hover:border-brand"
+                    >
+                      Facebook
+                    </button>
+
+                    {/* Instagram */}
+                    <button
+                      type="button"
+                      className="w-full bg-white text-black 
+               py-3 rounded-lg 
+               font-['Times_New_Roman'] font-semibold text-base
+               border border-black/30
+               transition-all duration-300
+               hover:bg-brand hover:text-white hover:border-brand"
+                    >
+                      Instagram
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );

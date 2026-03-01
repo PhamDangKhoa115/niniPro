@@ -41,6 +41,7 @@ export default function Navbar() {
               <NavLink
                 key={it.to}
                 to={it.to}
+                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 className={({ isActive }) =>
                   [
                     "no-underline text-[20px]  font-extraBold font-['Times_New_Roman'] uppercase  transition-all",

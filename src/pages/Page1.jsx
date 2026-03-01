@@ -31,6 +31,7 @@ export default function Page1() {
             với lòng nhân ái, cùng lan tỏa tinh thần “Keep Loving By Sharing”.
           </h2>
         </Section>
+        <div className="h-9 bg-brand" />
         <Section title={p.contribute.title}>
           <div className="grid gap-4 sm:grid-cols-2">
             {p.contribute.items.map((it, i) => (
@@ -51,6 +52,7 @@ export default function Page1() {
             ))}
           </div>
         </Section>
+        <div className="h-9 bg-brand" />
         <Section title={p.achievements.title}>
           <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols- place-items-center">
             {p.achievements.cards.map((c, i) => (
@@ -73,6 +75,7 @@ export default function Page1() {
             ))}
           </div>
         </Section>
+        <div className="h-9 bg-brand" />
         <Section title={p.memories.title}>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
             {p.memories.photos.map((src, i) => (
@@ -85,7 +88,7 @@ export default function Page1() {
             ))}
           </div>
         </Section>
-        <footer className="bg-pink-600 text-white">
+        <footer className="bg-brand text-white">
           <div className="mx-auto max-w-[980px] px-4 sm:px-6 py-10">
             <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
               <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">

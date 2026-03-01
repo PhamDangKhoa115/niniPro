@@ -19,6 +19,7 @@ export default function DonatePage() {
       <div className="min-h-screen bg-white text-slate-900">
         <Navbar />
         <HeaderBar />
+
         {/* Title */}
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10">
           <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText">
@@ -27,7 +28,7 @@ export default function DonatePage() {
         </div>
 
         {/* Pink bar */}
-        <div className="h-12 sm:h-16 bg-brand/60" />
+        <div className="h-12 sm:h-16 bg-brand" />
 
         {/* Content */}
         <section className="bg-white">
@@ -81,7 +82,7 @@ export default function DonatePage() {
         </section>
 
         {/* Bottom pink bar */}
-        <footer className="bg-pink-600 text-white">
+        <footer className="bg-brand text-white">
           <div className="mx-auto max-w-[980px] px-4 sm:px-6 py-10">
             <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
               <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">

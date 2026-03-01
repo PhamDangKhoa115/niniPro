@@ -12,7 +12,6 @@ export default function Section({ title, children, right }) {
           <div className="mt-4">{children}</div>
         </div>
       </div>
-      <div className="h-9 bg-pink-600/70" />
     </section>
   );
 }

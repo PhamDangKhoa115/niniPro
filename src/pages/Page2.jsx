@@ -22,8 +22,13 @@ export default function Page2() {
       <div className="min-h-screen bg-[#fff7fb] text-slate-900">
         <Navbar />
         <HeaderBar />
-
-        <Section title="CÁC HOẠT ĐỘNG">
+        <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10">
+          <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText">
+            Các hoạt động
+          </h1>
+        </div>
+        <div className="h-12 sm:h-16 bg-brand" />
+        <Section title="">
           <div className="grid gap-4 sm:grid-cols-2">
             {p.blocks.map((b, i) => (
               <article
@@ -46,7 +51,7 @@ export default function Page2() {
           </div>
         </Section>
 
-        <footer className="bg-pink-600 text-white">
+        <footer className="bg-brand text-white">
           <div className="mx-auto max-w-[980px] px-4 sm:px-6 py-10">
             <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
               <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">

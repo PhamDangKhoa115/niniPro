@@ -334,9 +334,12 @@ export default function HomePage() {
             transition={{ duration: 0.35, ease: "easeOut" }}
             className="w-full max-w-[520px] rounded-2xl border border-white/15 bg-white/10 p-5 shadow-[0_18px_60px_rgba(0,0,0,0.55)] backdrop-blur-xl"
           >
-            <p className="text-lg font-extrabold">Chào bạn 👋</p>
-            <p className="mt-1 text-sm leading-relaxed text-white/70">
-              Nhập tên để “đặt dấu” của bạn trên bầu trời.
+            <p className="text-[25px] font-['Times_New_Roman'] font-extrabold">
+              Chào bạn 👋
+            </p>
+            <p className="mt-1 text-[18px] leading-relaxed font-['Times_New_Roman'] text-white/70">
+              Hãy nhập tên để cùng chúng mình dệt nên dải ngân hà <br /> hy vọng
+              nhé !
             </p>
             <div className="mt-4 flex flex-col gap-2 sm:flex-row">
               <input

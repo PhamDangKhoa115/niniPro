@@ -104,7 +104,7 @@ export default function HomePage({ startTransition }) {
     // ✅ sau 5s gọi chuyển trang có hiệu ứng (overlay ở App)
     const tWarp = window.setTimeout(() => {
       startTransition("/mainPage");
-    }, 5000);
+    }, 8000);
 
     // ✅ fallback vẫn ok
     const tFallbackNav = window.setTimeout(() => {

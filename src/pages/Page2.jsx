@@ -50,54 +50,88 @@ export default function Page2() {
             ))}
           </div>
         </Section>
-
         <footer className="bg-brand text-white">
-          <div className="mx-auto max-w-[980px] px-4 sm:px-6 py-10">
-            <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
-              <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">
-                {/* Left: QR */}
-                <div className="flex">
-                  <div className="w-full bg-pink-100 rounded-xl"></div>
-                </div>
+          <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-8 sm:py-14">
+            <div className="grid gap-6 sm:gap-10 md:grid-cols-[420px_1fr] items-stretch">
+              {/* Left: QR */}
+              <div className="flex justify-center md:justify-start">
+                <div
+                  className="
+            w-full bg-pink-100 rounded-xl
+            aspect-[4/3]          /* ✅ mobile: không quá cao */
+            max-w-[360px]         /* ✅ mobile: giới hạn độ rộng */
+            md:max-w-none         /* desktop: trả về full theo cột */
+            md:aspect-auto        /* desktop: theo chiều cao tự nhiên */
+          "
+                />
+              </div>
 
-                {/* Right: Text */}
-                <div className="text-center md:text-center">
-                  <h2 className="text-3xl sm:text-3xl md:text-4xl font-['Times_New_Roman'] tracking-[0.04em] font-extrabold text-white leading-snug">
-                    SiTi Group
-                  </h2>
-                  <p className="mt-6 text-[20px] leading-relaxed text-white font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
-                    <span className="no-underline">Gmail: </span>
-                    <span className="underline">
-                      sitigroup.fptuhcm@gmail.com
-                    </span>
-                  </p>
-                  <div className="mt-6 space-y-5">
-                    {/* Facebook */}
-                    <button
-                      type="button"
-                      className="w-full bg-white text-black 
-               py-3 rounded-lg 
-               font-['Times_New_Roman'] font-semibold text-base
-               border border-black/30
-               transition-all duration-300
-               hover:bg-brand hover:text-white hover:border-brand"
+              {/* Right: Text */}
+              <div className="text-center md:text-center">
+                <h2
+                  className="
+            font-['Times_New_Roman'] tracking-[0.04em] font-extrabold text-white leading-snug
+            text-[26px] sm:text-3xl md:text-4xl
+          "
+                >
+                  SiTi Group
+                </h2>
+
+                <p
+                  className="
+            mt-3 sm:mt-6 font-['Times_New_Roman'] tracking-[0.04em] font-semibold text-white
+            text-[14px] sm:text-[20px]
+            break-words
+          "
+                >
+                  <span className="no-underline">Gmail: </span>
+                  <a
+                    href="mailto:sitigroup.fptuhcm@gmail.com"
+                    className="text-white underline underline-offset-4 hover:text-white"
+                  >
+                    sitigroup.fptuhcm@gmail.com
+                  </a>
+                </p>
+
+                <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-5">
+                  {/* Facebook */}
+                  <button
+                    type="button"
+                    className="
+              w-full bg-white text-black
+              py-2.5 sm:py-3
+              rounded-lg
+              font-['Times_New_Roman'] font-semibold
+              text-[14px] sm:text-base
+              border border-black/30
+              transition-all duration-300
+              hover:bg-brand hover:text-white hover:border-brand
+            "
+                  >
+                    <a
+                      href="https://www.facebook.com/sitigroupfuhcm"
+                      className="block w-full h-full"
                     >
                       Facebook
-                    </button>
+                    </a>
+                  </button>
 
-                    {/* Instagram */}
-                    <button
-                      type="button"
-                      className="w-full bg-white text-black 
-               py-3 rounded-lg 
-               font-['Times_New_Roman'] font-semibold text-base
-               border border-black/30
-               transition-all duration-300
-               hover:bg-brand hover:text-white hover:border-brand"
-                    >
-                      Instagram
-                    </button>
-                  </div>
+                  {/* Instagram */}
+                  <button
+                    type="button"
+                    className="
+              w-full bg-white text-black
+              py-2.5 sm:py-3
+              rounded-lg
+              font-['Times_New_Roman'] font-semibold
+              text-[14px] sm:text-base
+              border border-black/30
+              transition-all duration-300
+              hover:bg-brand hover:text-white hover:border-brand
+            "
+                  >
+                    Instagram
+                  </button>
                 </div>
               </div>
             </div>

@@ -39,7 +39,7 @@ export function buildStarsFromPeople(people, myName) {
       y: (Math.random() - 0.5) * 1400,
       radius: 0.6 + r * 1.6,
       tw: Math.random() * 10,
-      a: 0.08 + Math.random() * 0.22,
+      a: 0.05 + Math.random() * 0.18,
     });
   }
 
@@ -59,7 +59,7 @@ export function buildStarsFromPeople(people, myName) {
       name,
       x,
       y,
-      radius: 1.8 + rnd() * 2.6,
+      radius: 3.0 + rnd() * 3.6,
       tw: rnd() * 10,
       a: 0.45 + rnd() * 0.35,
       isMe: false,

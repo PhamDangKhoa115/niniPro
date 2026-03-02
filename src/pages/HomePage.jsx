@@ -1,29 +1,26 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { fetchVisitors } from "../api/visitors";
-import { useNavigate } from "react-router-dom";
-import StarBurstOverlay from "../components/StarBurstOverlay";
+
 import SpaceScene from "../components/SpaceScene";
 // import ProjectPanel from "../components/ProjectPanel";
 import CenterLogo from "../components/CenterLogo";
 // import PhaseBar from "../components/PhaseBar";
-import LocationPanel from "../components/LocationPanel";
+
 import { supabase } from "../utils/supabase";
 import space from "../assets/space.jpg";
 
 import { safeName } from "../utils/stars";
 
-import { CONSTELLATIONS, PHASES } from "../data/constellations";
-
-export default function HomePage() {
+export default function HomePage({ startTransition }) {
   // background parallax
-  const [warpOut, setWarpOut] = useState(false);
+
   const MY_NAME_KEY = "moon_my_name_v1";
   const [bgZoom, setBgZoom] = useState(1);
   const [bgOffset, setBgOffset] = useState({ x: 0, y: 0 });
-  const [phaseFx, setPhaseFx] = useState({ active: false, next: null });
+
   const [isMobile, setIsMobile] = useState(false);
-  const navigate = useNavigate();
+
   const LOGO_SHIFT_DESKTOP = -320;
   const LOGO_SHIFT_MOBILE = -70;
   useEffect(() => {
@@ -32,39 +29,9 @@ export default function HomePage() {
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
-  const PHASE_META = {
-    1: {
-      title: "Định Vị Vì Sao",
-      subtitle: "Nhìn thấy • Gọi tên • Đặt dấu",
-      zoomHint: "Zoom gần",
-    },
-    2: {
-      title: "Kết Quang Dệt Sáng",
-      subtitle: "Kết nối • Dệt sáng • Đồng hành",
-      zoomHint: "Zoom vừa",
-    },
-    3: {
-      title: "Thắp Sáng Ngân Hà",
-      subtitle: "Lan tỏa • Tổng lực • Ngân hà",
-      zoomHint: "Zoom rộng",
-    },
-  };
-  const isPhaseTransitioning = phaseFx.active;
-  useEffect(() => {
-    console.log("warpOut changed:", warpOut);
-  }, [warpOut]);
+
   // user
-  const setPhaseCinematic = (next) => {
-    if (next === phase) return;
 
-    setPhaseFx({ active: true, next });
-
-    // “đổi phase” ở giữa transition
-    window.setTimeout(() => setPhase(next), 1560);
-
-    // tắt overlay
-    window.setTimeout(() => setPhaseFx({ active: false, next: null }), 1360);
-  };
   const [nameInput, setNameInput] = useState(
     () => localStorage.getItem(MY_NAME_KEY) || "",
   );
@@ -118,16 +85,6 @@ export default function HomePage() {
 
   const [started, setStarted] = useState(false);
 
-  // UI
-  const [showProject, setShowProject] = useState(false);
-
-  // Phase
-  const [phase, setPhase] = useState(1);
-
-  // Selected location (panel)
-  const [selectedId, setSelectedId] = useState(null);
-  const selected = CONSTELLATIONS.find((c) => c.id === selectedId) || null;
-
   const focusMeRef = useRef(null);
   // ở đầu HomePage
 
@@ -144,14 +101,14 @@ export default function HomePage() {
       focusMeRef.current?.();
     }, 3000);
 
-    // bật overlay sau 5s (tuỳ bạn)
+    // ✅ sau 5s gọi chuyển trang có hiệu ứng (overlay ở App)
     const tWarp = window.setTimeout(() => {
-      setWarpOut(true);
+      startTransition("/mainPage");
     }, 5000);
 
-    // fallback: nếu overlay không gọi onDone (do lỗi), vẫn chuyển trang sau 9s
+    // ✅ fallback vẫn ok
     const tFallbackNav = window.setTimeout(() => {
-      navigate("/mainPage");
+      startTransition("/mainPage");
     }, 9500);
 
     return () => {
@@ -159,7 +116,7 @@ export default function HomePage() {
       window.clearTimeout(tWarp);
       window.clearTimeout(tFallbackNav);
     };
-  }, [started, myName, navigate]);
+  }, [started, myName, startTransition]);
   const start = async (raw) => {
     const n = safeName(raw);
     if (!n) return;
@@ -183,15 +140,6 @@ export default function HomePage() {
     } catch (e) {
       console.error("Supabase insert exception:", e);
     }
-
-    setShowProject(false);
-    window.setTimeout(() => setShowProject(true), 2200);
-  };
-
-  const resetAll = () => {
-    resetPeople();
-    localStorage.removeItem(MY_NAME_KEY);
-    window.location.reload();
   };
 
   return (
@@ -211,28 +159,22 @@ export default function HomePage() {
       {/* overlay nhẹ */}
       <div className="absolute inset-0 z-10 bg-black/20" />
 
-      {/* Phase bar (chỉ hiện sau khi started để đúng flow)
-      {started && <PhaseBar phase={phase} setPhase={setPhaseCinematic} />} */}
       {/* 🌟 CANVAS + STARS */}
       <div className="relative z-20">
         <SpaceScene
-          constellations={CONSTELLATIONS}
-          activePhase={phase}
           started={started}
           onFocusMeRef={focusMeRef}
           onZoomChange={setBgZoom}
           onPanChange={setBgOffset}
-          onSelectConstellation={setSelectedId}
-          phaseTransitioning={isPhaseTransitioning}
           myName={myName}
           people={people}
-          selectedId={selectedId}
         />
       </div>
 
       {/* Center Logo (xuất hiện dần) */}
       <motion.div
-        className="fixed left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30"
+        className="fixed left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30
+             scale-[1.65] sm:scale-100"
         initial={{
           opacity: 0,
           scale: 0.96,
@@ -261,69 +203,7 @@ export default function HomePage() {
       >
         <CenterLogo />
       </motion.div>
-      {/* Overlay intro (chỉ khi chưa started) */}
-      <AnimatePresence>
-        {!started && (
-          <motion.div
-            className="fixed inset-0 z-40 bg-[radial-gradient(800px_500px_at_50%_45%,rgba(110,231,255,0.10),rgba(3,7,18,0.88))] backdrop-blur"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0, pointerEvents: "none" }}
-            transition={{ duration: 0.25 }}
-          />
-        )}
-      </AnimatePresence>
-      <AnimatePresence>
-        {phaseFx.active && (
-          <motion.div
-            className="fixed inset-0 z-[60] pointer-events-none flex items-center justify-center"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.35, ease: "easeInOut" }}
-          >
-            {/* layer warp */}
-            <motion.div
-              className="absolute inset-0"
-              initial={{ scale: 1.02, filter: "blur(0px)" }}
-              animate={{ scale: 1.08, filter: "blur(6px)" }}
-              transition={{ duration: 1.3, ease: "easeInOut" }}
-              style={{
-                background:
-                  "radial-gradient(70% 60% at 50% 45%, rgba(120,220,255,0.10) 0%, rgba(0,0,0,0.62) 58%, rgba(0,0,0,0.92) 100%)",
-              }}
-            />
 
-            {/* phase text */}
-            <motion.div
-              className="relative z-10 text-center rounded-2xl border border-white/10 bg-black/35 px-6 py-5 backdrop-blur-xl shadow-[0_18px_60px_rgba(0,0,0,0.55)]"
-              initial={{ y: 10, opacity: 0, filter: "blur(6px)" }}
-              animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-            >
-              <div className="text-xs tracking-[0.22em] text-white/60">
-                PHASE {phaseFx.next}
-              </div>
-              <div className="mt-2 text-2xl md:text-3xl font-extrabold text-white/92">
-                {PHASE_META[phaseFx.next]?.title}
-              </div>
-              <div className="mt-2 text-sm text-white/65">
-                {PHASE_META[phaseFx.next]?.subtitle}
-              </div>
-
-              {/* progress bar */}
-              <motion.div className="mt-5 h-[3px] w-[min(420px,72vw)] overflow-hidden rounded-full bg-white/10 mx-auto">
-                <motion.div
-                  className="h-full bg-white/70"
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 0.7, ease: "easeInOut" }}
-                />
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       {/* CARD nhập tên -> morph góc trái */}
       {!started && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
@@ -366,27 +246,6 @@ export default function HomePage() {
           </motion.div>
         </div>
       )}
-
-      {/* Location Info Panel */}
-      <LocationPanel
-        open={!!selected}
-        data={selected}
-        phaseTitle={selected ? PHASES[selected.phase - 1]?.title : ""}
-        onClose={() => setSelectedId(null)}
-      />
-      <AnimatePresence>
-        {warpOut && (
-          <StarBurstOverlay
-            key="warp"
-            onDone={() => {
-              setWarpOut(false);
-              navigate("/mainPage");
-            }}
-          />
-        )}
-      </AnimatePresence>
-      {/* Project Panel */}
-      {/* <ProjectPanel show={showProject && !isPhaseTransitioning} /> */}
     </div>
   );
 }

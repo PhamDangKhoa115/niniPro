@@ -213,9 +213,9 @@ export default function SpaceScene({
       />
 
       <div className="fixed inset-0 pointer-events-none">
-        {peopleLabels.map((s) => (
+        {peopleLabels.map((s, i) => (
           <div
-            key={"p-" + s.name}
+            key={"p-" + i}
             className={[
               "absolute -translate-x-1/2 -translate-y-1/2 text-xs font-semibold whitespace-nowrap",
               s.isMe ? "text-cyan-100" : "text-white/70",

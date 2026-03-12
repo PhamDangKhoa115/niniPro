@@ -51,7 +51,7 @@ export default function Navbar() {
               linkColor,
             ].join(" ")}
           >
-            SiTi Group
+            SiTiGroup
           </Link>
 
           {/* Desktop menu */}

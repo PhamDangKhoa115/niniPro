@@ -46,8 +46,8 @@ export default function DonatePage() {
                 </h2>
 
                 <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em]  font-semibold">
-                  Tài trợ là một trong những cách đóng góp thiết thực cho SiTi
-                  Group trong hành trình triển khai dự án Hành Trình Hy Vọng
+                  Tài trợ là một trong những cách đóng góp thiết thực cho
+                  SiTiGroup trong hành trình triển khai dự án Hành Trình Hy Vọng
                   2026. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh
                   bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và
                   tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở
@@ -56,7 +56,7 @@ export default function DonatePage() {
 
                 <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em]  font-semibold">
                   Bên cạnh đó, sự đồng hành và ủng hộ từ cộng đồng chính là
-                  nguồn động lực để SiTi Group tiếp tục lan tỏa tinh thần sẻ
+                  nguồn động lực để SiTiGroup tiếp tục lan tỏa tinh thần sẻ
                   chia, phát huy sức trẻ và trách nhiệm xã hội, góp phần mang
                   đến những giá trị tích cực và bền vững cho cộng đồng.
                 </p>
@@ -72,7 +72,7 @@ export default function DonatePage() {
                     <div>Số tài khoản: 0825549830</div>
                     <div>Tên tài khoản: PHAN THIEN TINH</div>
                     <div>
-                      Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ SITI GROUP]{" "}
+                      Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ SITIGROUP]{" "}
                     </div>
                   </div>
                 </div>
@@ -106,7 +106,7 @@ export default function DonatePage() {
             text-[26px] sm:text-3xl md:text-4xl
           "
                 >
-                  SiTi Group
+                  SiTiGroup
                 </h2>
 
                 <p

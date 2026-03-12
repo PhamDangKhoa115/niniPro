@@ -21,10 +21,10 @@ export default function Page1() {
       <div className="min-h-screen bg-[#fff7fb] text-slate-900">
         <Navbar />;
         <HeaderBar />
-        <Section title="SiTi Group là ai?">
+        <Section title="SiTiGroup là ai?">
           <h2 className="text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
             {" "}
-            SiTi Group là Cộng đồng Sinh viên Tình nguyện được thành lập ngày
+            SiTiGroup là Cộng đồng Sinh viên Tình nguyện được thành lập ngày
             15/07/2009, mang sứ mệnh kết nối những sinh viên năng động, nhiệt
             huyết để cùng cống hiến vì cộng đồng. Đây không chỉ là môi trường để
             rèn luyện và trưởng thành, mà còn là nơi để các bạn trẻ sống trọn
@@ -112,7 +112,7 @@ export default function Page1() {
             text-[26px] sm:text-3xl md:text-4xl
           "
                 >
-                  SiTi Group
+                  SiTiGroup
                 </h2>
 
                 <p

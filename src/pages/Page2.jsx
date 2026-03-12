@@ -74,7 +74,7 @@ export default function Page2() {
             text-[26px] sm:text-3xl md:text-4xl
           "
                 >
-                  SiTi Group
+                  SiTiGroup
                 </h2>
 
                 <p

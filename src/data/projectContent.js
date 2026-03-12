@@ -1,6 +1,6 @@
 export const project = {
   brand: {
-    name: "SiTi Group",
+    name: "SiTiGroup",
     slogan: "slogan",
     year: "2026",
     themeTitle: "Thấu Sao Dệt Sáng",
@@ -37,12 +37,12 @@ export const project = {
       items: [
         {
           title: "Tài trợ",
-          desc: "Tài trợ là một trong những cách đóng góp thiết thực cho SiTi Group. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở bảo trợ ở TP. Hồ Chí Minh.",
+          desc: "Tài trợ là một trong những cách đóng góp thiết thực cho SiTiGroup. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở bảo trợ ở TP. Hồ Chí Minh.",
           image: "/Vision.png",
         },
         {
           title: "Tình nguyện viên",
-          desc: "Tham gia với vai trò tình nguyện viên SiTi Group, bạn sẽ trực tiếp đồng hành cùng Hành Trình Hy Vọng 2026 trong các hoạt động chuẩn bị, tổ chức gian hàng gây quỹ và những chuyến đi trao quà tại các cơ sở hỗ trợ trẻ em khuyết tật. Mỗi đóng góp về thời gian, công sức và sự sẻ chia đều góp phần lan tỏa yêu thương, mang đến những giá trị tích cực và bền vững cho cộng đồng.    ",
+          desc: "Tham gia với vai trò tình nguyện viên SiTiGroup, bạn sẽ trực tiếp đồng hành cùng Hành Trình Hy Vọng 2026 trong các hoạt động chuẩn bị, tổ chức gian hàng gây quỹ và những chuyến đi trao quà tại các cơ sở hỗ trợ trẻ em khuyết tật. Mỗi đóng góp về thời gian, công sức và sự sẻ chia đều góp phần lan tỏa yêu thương, mang đến những giá trị tích cực và bền vững cho cộng đồng.    ",
           image: "/Vision.png",
         },
       ],

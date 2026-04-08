@@ -1,6 +1,6 @@
 export default function Section({ title, children, right }) {
   return (
-    <section className="bg-white">
+    <section className="bg-bgMain">
       <div className="mx-auto w-full max-w-[980px] px-4 sm:px-6">
         <div className="py-8 sm:py-10">
           <div className="flex items-end justify-between gap-4">

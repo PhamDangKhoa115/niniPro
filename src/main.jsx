@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "leaflet/dist/leaflet.css";
 import { SpeedInsights } from "@vercel/speed-insights/react";
 createRoot(document.getElementById("root")).render(
   <StrictMode>

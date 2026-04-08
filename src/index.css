@@ -47,3 +47,59 @@ body,
   animation-iteration-count: infinite;
   will-change: transform, opacity, filter;
 }
+.marquee-wrap {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.marquee-track {
+  display: inline-flex;
+  min-width: max-content;
+  animation: sitiMarquee 22s linear infinite;
+}
+
+.marquee-text {
+  display: inline-block;
+  padding-right: 64px;
+}
+
+@keyframes sitiMarquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("/src/assets/fonts/BeaufortforLOL-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Beaufort";
+  src: url("/src/assets/fonts/BeaufortforLOL-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Beaufort";
+  src: url("/src/assets/fonts/BeaufortforLOL-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+}
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("/src/assets/fonts/BarlowCondensed-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}

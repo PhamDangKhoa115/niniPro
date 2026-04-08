@@ -1,38 +1,111 @@
 import Navbar from "../components/Navbar";
+import CardCarousel from "../components/CardCarousel";
 import Section from "../components/Section";
 import { project } from "../data/projectContent";
+import { s } from "framer-motion/client";
 function HeaderBar() {
   return (
-    <div className="w-full bg-[#fff7fb]">
-      <img
-        src={project.brand.heroImage}
-        alt="Hero"
-        className="w-full object-contain"
-        draggable={false}
-      />
-    </div>
+    <section
+      className="relative w-full h-screen flex items-center "
+      style={{
+        backgroundImage: `url(${project.brand.heroImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    >
+      {/* overlay */}
+      <div className="absolute inset-0 bg-black/20" />
+
+      {/* content */}
+      <div className="relative z-10 max-w-[1500px] mx-auto px-6">
+        <div className="max-w-[2000x] text-white">
+          <h1 className="font-beaufort font-normal text-[48px] sm:text-[100px] text-brandtexting">
+            HÀNH TRÌNH HY VỌNG 2026
+          </h1>
+
+          <h2 className="font-beaufort italic text-[50px] text-brandtexting/90 text-center">
+            Thấu Sao Dệt Sáng
+          </h2>
+
+          <p className="mt-4 text-sm sm:text-base text-white/80 text-center ">
+            Tìm hiểu thêm
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }
 export default function Page1() {
   const p = project.page1;
-
+  const campaignCards = [
+    {
+      id: 1,
+      title: "Hiến Máu Nhân Đạo 2026 - Tiếp Nguồn Sinh Khí",
+      desc: "Hoạt động thường niên nhằm góp phần khắc phục tình trạng thiếu máu tại kho máu TP.HCM và nâng cao nhận thức về ý nghĩa của hiến máu. Dự án phối hợp cùng Bệnh viện Huyết học Truyền máu tổ chức nhằm kêu gọi cán bộ,giảng viên, sinh viên FPT và cộng đồng tham gia, qua đó lan tỏa tinh thần nhân ái và trách nhiệm xã hội.",
+      image: project.brand.heroImage,
+      special: "SỐ LƯỢNG THAM GIA: 205 NGƯỜI",
+    },
+    {
+      id: 2,
+      title: "Xuân Yêu Thương 2026 - Xuân Ấm Trao Em",
+      desc: "Dự án mang đến một mùa Tết ấm áp cho các em nhỏ tại Mái ấm Kim Chi, với các hoạt động giao lưu và tặng quà Tết, nhu yếu phẩm. SiTiGroup hy vọng lan tỏa tinh thần sẻ chia và tình yêu thương đến những hoàn cảnh khó khăn.",
+      image: project.brand.heroImage,
+      special:
+        "QUY MÔ GIÚP ĐỠ: 184 TRẺ EM \n TỔNG SỐ TIỀN GÂY QUỸ: 4.956.000 VND",
+    },
+    {
+      id: 3,
+      title: "Lớp Học Tình Thương 2026-Nắng Mai Ươm Mầm",
+      desc: "Dự án được tổ chức với mong muốn mang đến cho các em nhỏ tại Trung tâm Phát huy Bình Thọ một không gian học tập thân thiện, gần gũi và đầy cảm hứng. Các em sẽ được hỗ trợ hoàn thành bài tập, tham gia những trò chơi vui nhộn và trải nghiệm những hoạt động ý nghĩa như làm đồ thủ công, biểu diễn văn nghệ.",
+      image: project.brand.heroImage,
+      special: "QUY MÔ GIÚP ĐỠ: 100 TRẺ EM",
+    },
+    {
+      id: 4,
+      title: "Trung Thu Yêu Thương 2025 - Trăng Trên Đại Ngàn",
+      desc: "Chuỗi hoạt động đưa chúng ta trở về miền ký ức tuổi thơ, sống lại niềm vui từ những trò chơi dân gian quen thuộc, đồng thời gửi trao đến các em nhỏ tại mái ấm Vinh Sơn IV một mùa trăng tròn trọn vẹn, ấm áp và tràn đầy yêu thương.",
+      image: project.brand.heroImage,
+      special:
+        "QUY MÔ GIÚP ĐỠ: 107 TRẺ EM \n TỔNG SỐ TIỀN GÂY QUỸ: 19.859.000 VND",
+    },
+  ];
   return (
     <div className="pt-10">
-      <div className="min-h-screen bg-[#fff7fb] text-slate-900">
-        <Navbar />;
+      <div className="min-h-screen bg-bgMain text-slate-900">
+        <Navbar />
         <HeaderBar />
-        <Section title="SiTiGroup là ai?">
-          <h2 className="text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
+        {/* Marquee */}
+        <section className="bg-brand text-white border-y border-brand/20">
+          <div className="marquee-wrap py-4 sm:py-5">
+            <div className="marquee-track text-[28px] sm:text-[46px] lg:text-[70px] font-black uppercase tracking-[0.08em]">
+              <span className="marquee-text">
+                HÀNH TRÌNH HY VỌNG 2026 - THẤU SAO DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                HÀNH TRÌNH HY VỌNG 2026 - THẤU SAO DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                HÀNH TRÌNH HY VỌNG 2026 - THẤU SAO DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                HÀNH TRÌNH HY VỌNG 2026 - THẤU SAO DỆT SÁNG
+              </span>
+            </div>
+          </div>
+        </section>
+        <Section title="DỰ ÁN HÀNH TRÌNH HY VỌNG">
+          <h2 className="text-center sm:text-left w-full text-[14px] sm:text-[20px] font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
             {" "}
-            SiTiGroup là Cộng đồng Sinh viên Tình nguyện được thành lập ngày
-            15/07/2009, mang sứ mệnh kết nối những sinh viên năng động, nhiệt
-            huyết để cùng cống hiến vì cộng đồng. Đây không chỉ là môi trường để
-            rèn luyện và trưởng thành, mà còn là nơi để các bạn trẻ sống trọn
-            với lòng nhân ái, cùng lan tỏa tinh thần “Keep Loving By Sharing”.
+            Hành Trình Hy Vọng là chuỗi dự án thường niên được tổ chức với mục
+            tiêu nâng cao nhận thức cộng đồng, nuôi dưỡng sự thấu hiểu và lan
+            tỏa tinh thần yêu thương đến những hoàn cảnh cần được sẻ chia. Thông
+            qua các hoạt động ý nghĩa và thiết thực, dự án mong muốn tiếp thêm
+            động lực, niềm tin và hy vọng để các em vững bước hướng tới tương
+            lai.
           </h2>
         </Section>
         <div className="h-9 bg-brand" />
-        <Section title={p.contribute.title}>
+        {/* <Section title={p.contribute.title}>
           <div className="grid gap-4 sm:grid-cols-2">
             {p.contribute.items.map((it, i) => (
               <div
@@ -51,6 +124,38 @@ export default function Page1() {
               </div>
             ))}
           </div>
+        </Section> */}
+        <Section title="CÁC DỰ ÁN NỔI BẬT">
+          <CardCarousel
+            items={campaignCards}
+            renderCard={(it) => (
+              <article className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm">
+                <div className="h-52 sm:h-60 bg-brand-soft overflow-hidden">
+                  <img
+                    src={it.image}
+                    alt={it.title}
+                    className="h-full w-full object-cover"
+                    draggable={false}
+                  />
+                </div>
+
+                <div className="p-5">
+                  <h3 className="text-[22px] md:text-[26px] font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line">
+                    {it.title}
+                  </h3>
+
+                  <p className="mt-3 text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light">
+                    {it.desc}
+                  </p>
+                  {it.special && (
+                    <p className="mt-2 text-[12px] sm:text-[16px] font-bold text-brandbrown whitespace-pre-line">
+                      {it.special}
+                    </p>
+                  )}
+                </div>
+              </article>
+            )}
+          />
         </Section>
         <div className="h-9 bg-brand" />
         <Section title={p.achievements.title}>
@@ -152,23 +257,6 @@ export default function Page1() {
                     >
                       Facebook
                     </a>
-                  </button>
-
-                  {/* Instagram */}
-                  <button
-                    type="button"
-                    className="
-              w-full bg-white text-black
-              py-2.5 sm:py-3
-              rounded-lg
-              font-['Times_New_Roman'] font-semibold
-              text-[14px] sm:text-base
-              border border-black/30
-              transition-all duration-300
-              hover:bg-brand hover:text-white hover:border-brand
-            "
-                  >
-                    Instagram
                   </button>
                 </div>
               </div>

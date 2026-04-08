@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 export default function DonatePage() {
   function HeaderBar() {
     return (
-      <div className="w-full bg-[#fff7fb]">
+      <div className="w-full bg-[#f6fbff]">
         <img
           src={project.brand.heroImage}
           alt="Hero"
@@ -16,9 +16,8 @@ export default function DonatePage() {
   }
   return (
     <div className="pt-16">
-      <div className="min-h-screen bg-white text-slate-900">
+      <div className="min-h-screen bg-[#f6fbff] text-slate-900">
         <Navbar />
-        <HeaderBar />
 
         {/* Title */}
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10">
@@ -31,7 +30,7 @@ export default function DonatePage() {
         <div className="h-12 sm:h-16 bg-brand" />
 
         {/* Content */}
-        <section className="bg-white">
+        <section className="bg-bgMain">
           <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
             <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">
               {/* Left: QR */}
@@ -146,23 +145,6 @@ export default function DonatePage() {
                     >
                       Facebook
                     </a>
-                  </button>
-
-                  {/* Instagram */}
-                  <button
-                    type="button"
-                    className="
-              w-full bg-white text-black
-              py-2.5 sm:py-3
-              rounded-lg
-              font-['Times_New_Roman'] font-semibold
-              text-[14px] sm:text-base
-              border border-black/30
-              transition-all duration-300
-              hover:bg-brand hover:text-white hover:border-brand
-            "
-                  >
-                    Instagram
                   </button>
                 </div>
               </div>

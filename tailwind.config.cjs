@@ -3,12 +3,20 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        beaufort: ["Beaufort", "sans-serif"],
+        barlow: ["Barlow Condensed", "sans-serif"],
+      },
+
       colors: {
-        brand: "#E72B71",
-        "brand-dark": "#c81f5e",
-        "brand-soft": "#fce4ed",
-        brandText: "#9a1459",
-        "brandText-light": "#cb5086",
+        brand: "#002e6b",
+        "brand-dark": "#1565C0",
+        "brand-soft": "#E3F2FD",
+        brandText: "#0D3B66",
+        "brandText-light": "#4B6B88",
+        brandtexting: "#fff930",
+        bgMain: "#f7fac6",
+        brandbrown: "#41291b",
       },
     },
   },

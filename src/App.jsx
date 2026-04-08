@@ -5,7 +5,7 @@ import HomePage from "./pages/HomePage";
 import Page1 from "./pages/Page1";
 import Page2 from "./pages/Page2";
 import DonatePage from "./pages/DonatePage";
-
+import MapPage from "./pages/MapPage";
 import StarTransitionOverlay from "./components/StarTransitionOverlay";
 
 export default function App() {
@@ -52,7 +52,7 @@ export default function App() {
           path="/HomePage"
           element={<HomePage startTransition={startTransition} />}
         />
-
+        <Route path="/explore" element={<MapPage />} />
         <Route path="/mainPage" element={<Page1 />} />
         <Route path="/Activities" element={<Page2 />} />
         <Route path="/donate" element={<DonatePage />} />

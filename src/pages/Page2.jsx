@@ -7,7 +7,7 @@ export default function Page2() {
   const p = project.page2;
   function HeaderBar() {
     return (
-      <div className="w-full bg-[#fff7fb]">
+      <div className="w-full bg-[#f6fbff]">
         <img
           src={project.brand.heroImage}
           alt="Hero"
@@ -19,9 +19,9 @@ export default function Page2() {
   }
   return (
     <div className="pt-16">
-      <div className="min-h-screen bg-[#fff7fb] text-slate-900">
+      <div className="min-h-screen bg-[#f6fbff] text-slate-900">
         <Navbar />
-        <HeaderBar />
+
         <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10">
           <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText">
             Các hoạt động
@@ -114,23 +114,6 @@ export default function Page2() {
                     >
                       Facebook
                     </a>
-                  </button>
-
-                  {/* Instagram */}
-                  <button
-                    type="button"
-                    className="
-              w-full bg-white text-black
-              py-2.5 sm:py-3
-              rounded-lg
-              font-['Times_New_Roman'] font-semibold
-              text-[14px] sm:text-base
-              border border-black/30
-              transition-all duration-300
-              hover:bg-brand hover:text-white hover:border-brand
-            "
-                  >
-                    Instagram
                   </button>
                 </div>
               </div>

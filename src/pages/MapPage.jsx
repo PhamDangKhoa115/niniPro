@@ -43,7 +43,30 @@ export default function MapPage() {
   const [selected, setSelected] = useState(validLocations[0] || null);
   const [mobilePanelOpen, setMobilePanelOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-
+  const createNumberIcon = (number) =>
+    L.divIcon({
+      className: "custom-marker",
+      html: `
+      <div style="
+        background:#1d4ed8;
+        color:white;
+        width:30px;
+        height:30px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-weight:bold;
+        font-size:14px;
+        border:2px solid white;
+        box-shadow:0 2px 6px rgba(0,0,0,0.3);
+      ">
+        ${number}
+      </div>
+    `,
+      iconSize: [30, 30],
+      iconAnchor: [15, 30],
+    });
   const center = useMemo(() => [10.8231, 106.6297], []);
 
   useEffect(() => {
@@ -144,10 +167,15 @@ export default function MapPage() {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                   />
 
-                  {validLocations.map((loc) => (
+                  {validLocations.map((loc, index) => (
                     <Marker
                       key={loc.id}
                       position={[Number(loc.lat), Number(loc.lng)]}
+                      icon={
+                        selected?.id === loc.id
+                          ? createNumberIcon(`⭐`)
+                          : createNumberIcon(index + 1)
+                      }
                       eventHandlers={{
                         click: () => setSelected(loc),
                       }}

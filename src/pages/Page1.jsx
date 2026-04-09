@@ -210,6 +210,22 @@ export default function Page1() {
             động lực, niềm tin và hy vọng để các em vững bước hướng tới tương
             lai.
           </motion.h2>
+          <motion.div
+            key={i}
+            variants={cardVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={i}
+            className="overflow-hidden rounded-2xl border border-pink-200 bg-white"
+          >
+            <div className="overflow-hidden bg-brand-soft rounded-t-2xl">
+              <img
+                src="/HTHV.png"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </motion.div>
         </Section>
         <div className="h-9 bg-brand" />
         <Section title="CÁC DỰ ÁN NỔI BẬT">

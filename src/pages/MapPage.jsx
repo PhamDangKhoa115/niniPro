@@ -39,9 +39,9 @@ export default function MapPage() {
       <Navbar />
 
       <div className="pt-[84px] h-screen">
-        <div className="grid h-[calc(100vh-84px)] grid-cols-1 lg:grid-cols-[380px_1fr]">
+        <div className="grid grid-cols-1 lg:grid-cols-[380px_1fr] lg:h-[calc(100vh-84px)]">
           {/* Left panel */}
-          <aside className="border-r border-black/10 bg-white/80 backdrop-blur-md p-4 overflow-y-auto">
+          <aside className="border-b lg:border-b-0 lg:border-r border-black/10 bg-white/80 backdrop-blur-md p-4 lg:overflow-y-auto">
             <div className="rounded-2xl bg-white shadow-sm border border-black/10 p-4">
               <h1 className="text-2xl font-bold font-beaufort text-brandText">
                 Khám phá địa điểm hỗ trợ
@@ -106,7 +106,7 @@ export default function MapPage() {
           </aside>
 
           {/* Right map */}
-          <section className="relative h-full">
+          <section className="relative h-[420px] sm:h-[520px] lg:h-full">
             <MapContainer
               center={center}
               zoom={10}

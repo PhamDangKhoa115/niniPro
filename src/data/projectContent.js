@@ -42,8 +42,27 @@ export const project = {
         },
         {
           title: "Tình nguyện viên",
-          desc: "Tham gia với vai trò tình nguyện viên SiTiGroup, bạn sẽ trực tiếp đồng hành cùng Hành Trình Hy Vọng 2026 trong các hoạt động chuẩn bị, tổ chức gian hàng gây quỹ và những chuyến đi trao quà tại các cơ sở hỗ trợ trẻ em khuyết tật. Mỗi đóng góp về thời gian, công sức và sự sẻ chia đều góp phần lan tỏa yêu thương, mang đến những giá trị tích cực và bền vững cho cộng đồng.    ",
+          desc: "Tham gia với vai trò tình nguyện viên SiTiGroup, bạn sẽ trực tiếp đồng hành cùng Hành Trình Hy Vọng 2026 trong các hoạt động chuẩn bị, tổ chức gian hàng gây quỹ và những chuyến đi trao quà tại các cơ sở hỗ trợ trẻ em khuyết tật. Mỗi đóng góp về thời gian, công sức và sự sẻ chia đều góp phần lan tỏa yêu thương,mang đến những giá trị tích cực và bền vững cho cộng đồng.    ",
           image: "/Vision.png",
+        },
+      ],
+    },
+    previous: {
+      title: "Những thành công đã đạt được trong các dự án trước",
+      items: [
+        {
+          title: "HÀNH TRÌNH HY VỌNG 2024 \n NỐI KẾT ÁNH MẶT TRỜI",
+          desc: "Hành Trình Hy Vọng 2024 – Nối Kết Ánh Mặt Trời là dự án thiện nguyện hướng đến trẻ em mồ côi và các cụ bà neo đơn tại Bến Tre và Tiền Giang. Dự án được tổ chức với gian hàng gây quỹ Summer Camp tại Trường Đại học FPT HCM với sự đồng hành cùng hơn 20 CLB nhằm huy động nguồn lực cho chuyến đi trao tặng vật phẩm hỗ trợ và tổ chức các hoạt động giao lưu ý nghĩa, góp phần lan tỏa tinh thần sẻ chia và kết nối cộng đồng.",
+          image: "/NKAMT.png",
+          special:
+            "TỔNG SỐ TIỀN GÂY QUỸ: 20.322.000 VND\nQUY MÔ GIÚP ĐỠ: 140 TRẺ EM-12 CỤ BÀ NEO ĐƠN",
+        },
+        {
+          title: "Dự án Hành trình hy vọng 2025 \n Vươn Mầm Ước Mơ ",
+          desc: "Dự án Hành trình hy vọng 2025 - Vươn Mầm Ước Mơ là chuyến hành trình ghé thăm Trường Nuôi Dạy Trẻ Em Khuyết Tật Huyện Củ Chi, nơi SiTiGroup đồng hành cùng các em trong hành trình ươm mầm và nuôi dưỡng ước mơ, đồng thời lan tỏa thông điệp tích cực đến cộng đồng về khát vọng theo đuổi giấc mơ và đam mê của mỗi người.   ",
+          image: "/VMUU.png",
+          special:
+            "TỔNG SỐ TIỀN GÂY QUỸ: 29.895.000 VND \n QUY MÔ GIÚP ĐỠ: 122 TRẺ EM ",
         },
       ],
     },

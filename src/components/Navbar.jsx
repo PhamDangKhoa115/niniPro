@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import Logo from "../assets/ELEMENT 7.png";
 import SearchBox from "./SearchBox";
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -28,8 +29,6 @@ export default function Navbar() {
     { to: "/donate", label: "DONATE" },
   ];
 
-  const linkColor = scrolled ? "text-white" : "text-brandText";
-
   return (
     <header
       className={[
@@ -39,10 +38,55 @@ export default function Navbar() {
           : "bg-white/95 border-brand/10 backdrop-blur-md",
       ].join(" ")}
     >
-      <div className="mx-auto max-w-[1280px] px-4 sm:px-6">
-        <div className="h-16 sm:h-[84px] grid grid-cols-[auto_1fr_auto] items-center gap-4">
-          {/* Center: logo */}
-          <div className="flex justify-center">
+      <div className="mx-auto max-w-[1280px] px-3 sm:px-6">
+        {/* MOBILE */}
+        <div className="lg:hidden h-16 flex items-center justify-between gap-2">
+          <Link
+            to="/"
+            onClick={() => {
+              setOpen(false);
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
+            className="shrink-0 inline-flex items-center"
+          >
+            <img
+              src={Logo}
+              alt="SiTiGroup"
+              className="h-9 w-auto object-contain"
+              draggable={false}
+            />
+          </Link>
+
+          <div className="min-w-0 flex-1 flex justify-center">
+            <SearchBox />
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            className={[
+              "shrink-0 inline-flex items-center justify-center rounded-xl w-10 h-10 transition-all",
+              scrolled
+                ? "text-white/90 hover:text-white hover:bg-white/10"
+                : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
+            ].join(" ")}
+            aria-label="Menu"
+            aria-expanded={open}
+          >
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+              <path
+                d="M4 7h16M4 12h16M4 17h16"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+              />
+            </svg>
+          </button>
+        </div>
+
+        {/* DESKTOP */}
+        <div className="hidden lg:grid h-[84px] grid-cols-[auto_auto_1fr] items-center gap-4">
+          <div className="flex items-center justify-start">
             <Link
               to="/"
               onClick={() => {
@@ -54,18 +98,17 @@ export default function Navbar() {
               <img
                 src={Logo}
                 alt="SiTiGroup"
-                className="h-10 sm:h-12 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 draggable={false}
               />
             </Link>
           </div>
-          {/* Left: search icon */}
+
           <div className="flex items-center">
             <SearchBox />
           </div>
 
-          {/* Right: desktop nav */}
-          <nav className="hidden sm:flex items-center justify-end gap-6 lg:gap-8">
+          <nav className="flex items-center justify-end gap-6 lg:gap-8">
             {items.map((it) => (
               <NavLink
                 key={it.to}
@@ -86,37 +129,12 @@ export default function Navbar() {
               </NavLink>
             ))}
           </nav>
-
-          {/* Mobile menu button */}
-          <div className="sm:hidden flex justify-end">
-            <button
-              type="button"
-              onClick={() => setOpen((v) => !v)}
-              className={[
-                "inline-flex items-center justify-center rounded-xl w-10 h-10 transition-all",
-                scrolled
-                  ? "text-white/90 hover:text-white hover:bg-white/10"
-                  : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
-              ].join(" ")}
-              aria-label="Menu"
-              aria-expanded={open}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M4 7h16M4 12h16M4 17h16"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                />
-              </svg>
-            </button>
-          </div>
         </div>
 
-        {/* Mobile dropdown */}
+        {/* MOBILE DROPDOWN */}
         <div
           className={[
-            "sm:hidden overflow-hidden transition-all duration-300",
+            "lg:hidden overflow-hidden transition-all duration-300",
             open ? "max-h-80 pb-3" : "max-h-0",
           ].join(" ")}
         >

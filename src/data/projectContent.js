@@ -1,3 +1,5 @@
+import { i, image } from "framer-motion/client";
+
 export const project = {
   brand: {
     name: "SiTiGroup",
@@ -9,31 +11,58 @@ export const project = {
 
   page1: {
     achievements: {
-      title: "Đối tác",
+      title: "ĐỐI TÁC",
       cards: [
-        { title: "Nhà tài trợ", desc: "Thông tin " },
-        { title: "Nhà Đồng Hành", desc: "Thông tin " },
         {
-          title: "Câu lạc bộ bảo trợ",
-          desc: "Thông tin ",
+          title: "ĐƠN VỊ PHỐI HỢP THỰC HIỆN ",
+          desc: "US Organization ",
+          image: "/attribute/USO.jpg",
         },
         {
-          title: "Câu lạc bộ bảo trợ",
-          desc: "Thông tin ",
+          title: "NHÀ TÀI TRỢ",
+          desc: "Nhà sách Văn Minh ",
+          image: "/attribute/nhasach.jpg",
         },
         {
-          title: "Câu lạc bộ bảo trợ",
-          desc: "Thông tin ",
+          title: "NHÀ TÀI TRỢ",
+          desc: "Umi Flowers ",
+          image: "/attribute/flower.png",
         },
         {
-          title: "Câu lạc bộ bảo trợ",
-          desc: "Thông tin ",
+          title: "NHÀ TÀI TRỢ",
+          desc: "T-Bingsu ",
+          image: "/attribute/bingsu.png",
+        },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "YBOX.VN ",
+          image: "/attribute/ybox.jpg",
+        },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "Edu2Review ",
+          image: "/attribute/edu2review.jpg",
+        },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "Eduwing Global ",
+          image: "/attribute/eduwing.jpg",
+        },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "THỂ THAO KHOA VĂN ",
+          image: "/attribute/TTKV.jpg",
+        },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "VNV - Cộng Đồng Tình Nguyện Việt Nam ",
+          image: "/attribute/VNV.jpg",
         },
       ],
     },
 
     contribute: {
-      title: "Làm sao để đóng góp?",
+      title: "LÀM SAO ĐỂ ĐÓNG GÓP?",
       items: [
         {
           title: "Tài trợ",
@@ -48,7 +77,7 @@ export const project = {
       ],
     },
     previous: {
-      title: "Những thành công đã đạt được trong các dự án trước",
+      title: "NHỮNG THÀNH CÔNG ĐÃ ĐẠT ĐƯỢC TRONG CÁC DỰ ÁN TRƯỚC",
       items: [
         {
           title: "HÀNH TRÌNH HY VỌNG 2024 \n NỐI KẾT ÁNH MẶT TRỜI",

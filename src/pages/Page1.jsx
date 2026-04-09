@@ -9,6 +9,7 @@ import XYT from "../assets/XYT.png";
 import TTYT from "../assets/TTYT.png";
 import { project } from "../data/projectContent";
 import { a, i } from "framer-motion/client";
+import Logo from "../assets/ELEMENT 7.png";
 
 const cardVariants = {
   hidden: (i) => ({
@@ -249,7 +250,7 @@ export default function Page1() {
                     {it.desc}
                   </p>
                   {it.special && (
-                    <p className="mt-2 text-[12px] sm:text-[16px] font-bold text-brandbrown whitespace-pre-line">
+                    <p className="mt-2 text-[12px] sm:text-[16px] font-bold font-['Times_New_Roman'] text-brandbrown whitespace-pre-line">
                       {it.special}
                     </p>
                   )}
@@ -324,7 +325,7 @@ export default function Page1() {
         </Section>
         <div className="h-9 bg-brand" />
         <Section title={p.achievements.title}>
-          <div className="grid grid-cols-2 gap-10 sm:grid-cols-3 lg:grid-cols- place-items-center">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 place-items-center">
             {p.achievements.cards.map((c, i) => (
               <motion.div
                 key={i}
@@ -333,20 +334,22 @@ export default function Page1() {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
                 custom={i}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center gap-4 max-w-[500px]"
               >
                 {/* Logo */}
-                <div className="h-48 w-48 rounded-2xl bg-brand-soft flex items-center justify-center transition duration-300 hover:scale-105 shadow-sm">
-                  <span className="text-brandText/40 text-sm tracking-widest uppercase"></span>
+                <div className="h-48 w-48 rounded-2xl bg-white flex items-center justify-center hover:scale-105 shadow-md">
+                  <img
+                    src={c.image}
+                    alt="image"
+                    className="w-full h-full object-contain p-4"
+                  />
                 </div>
-
                 {/* Title */}
-                <div className="text-center sm:text-left w-full text-1xl md:text-2xl lg:text-1 sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText">
+                <div className="w-full text-center text-[20px] md:text-[23px] font-extrabold font-['Times_New_Roman'] text-brandText leading-tight min-h-[20px]">
                   {c.title}
                 </div>
-
                 {/* Subtitle */}
-                <div className="text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
+                <div className="text-center sm:text-left w-full text-[14px] sm:text-[17px] font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
                   {c.desc}
                 </div>
               </motion.div>
@@ -371,71 +374,79 @@ export default function Page1() {
             ))}
           </div>
         </Section>
-        <footer className="bg-brand text-white">
-          <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-8 sm:py-14">
-            <div className="grid gap-6 sm:gap-10 md:grid-cols-[420px_1fr] items-stretch">
-              {/* Left: QR */}
-              <div className="flex justify-center md:justify-start">
-                <div
-                  className="
-            w-full bg-pink-100 rounded-xl
-            aspect-[4/3]          /* ✅ mobile: không quá cao */
-            max-w-[360px]         /* ✅ mobile: giới hạn độ rộng */
-            md:max-w-none         /* desktop: trả về full theo cột */
-            md:aspect-auto        /* desktop: theo chiều cao tự nhiên */
-          "
+        <footer className="bg-brand border-t border-black/10">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">
+              {/* Logo */}
+              <div className="flex justify-center md:justify-start self-start">
+                <img
+                  src={Logo}
+                  alt="SiTiGroup Logo"
+                  className="w-[170px] sm:w-[190px] object-contain mt-1 sm:py-8"
                 />
               </div>
 
-              {/* Right: Text */}
-              <div className="text-center md:text-center">
-                <h2
-                  className="
-            font-['Times_New_Roman'] tracking-[0.04em] font-extrabold text-white leading-snug
-            text-[26px] sm:text-3xl md:text-4xl
-          "
-                >
-                  SiTiGroup
-                </h2>
-
-                <p
-                  className="
-            mt-3 sm:mt-6 font-['Times_New_Roman'] tracking-[0.04em] font-semibold text-white
-            text-[14px] sm:text-[20px]
-            break-words
-          "
-                >
-                  <span className="no-underline">Gmail: </span>
-                  <a
-                    href="mailto:sitigroup.fptuhcm@gmail.com"
-                    className="text-white underline underline-offset-4 hover:text-white"
-                  >
-                    sitigroup.fptuhcm@gmail.com
-                  </a>
-                </p>
-
-                <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-5">
-                  {/* Facebook */}
-                  <button
-                    type="button"
-                    className="
-              w-full bg-white text-black
-              py-2.5 sm:py-3
-              rounded-lg
-              font-['Times_New_Roman'] font-semibold
-              text-[14px] sm:text-base
-              border border-black/30
-              transition-all duration-300
-              hover:bg-brand hover:text-white hover:border-brand
-            "
-                  >
+              {/* Contact */}
+              <div className="text-center md:text-left">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting">
+                  Thông tin liên hệ
+                </h3>
+                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brandtexting/90 leading-relaxed">
+                  <p>
                     <a
-                      href="https://www.facebook.com/sitigroupfuhcm"
-                      className="block w-full h-full"
+                      href="mailto:sitigroup.fptuhcm@gmail.com"
+                      className="hover:text-brandtexting/90 transition-colors"
                     >
-                      Facebook
+                      sitigroup.fptuhcm@gmail.com
                     </a>
-                  </button>
+                  </p>
+                  <p>
+                    <a
+                      href="tel:+84901234567"
+                      className="hover:text-brandtexting/90 transition-colors"
+                    >
+                      (+84) 91 588 36 88
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="text-center md:text-left">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting">
+                  Địa chỉ
+                </h3>
+                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold text-brandtexting/90 leading-relaxed">
+                  Lô E2a-7, Đường D1, Khu Công nghệ cao, Phường Tăng Nhơn Phú,
+                  TP. Hồ Chí Minh
+                </p>
+              </div>
+
+              {/* Social + copyright */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting whitespace-nowrap">
+                  Theo dõi chúng tôi tại
+                </h3>
+
+                <div className="mt-7 ">
+                  <a
+                    href="https://www.facebook.com/sitigroupfuhcm"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+  h-12 w-12 rounded-full
+  border border-black/15
+  bg-white
+  flex items-center justify-center
+  text-[#1877f2] text-[20px]
+  hover:bg-[#1877f2] hover:text-white
+  hover:-translate-y-1 hover:shadow-md
+  transition-all duration-300 
+"
+                    aria-label="Facebook"
+                  >
+                    <i className="bi bi-facebook"></i>
+                  </a>
                 </div>
               </div>
             </div>

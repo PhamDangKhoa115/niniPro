@@ -7,7 +7,7 @@ import Page2 from "./pages/Page2";
 import DonatePage from "./pages/DonatePage";
 import MapPage from "./pages/MapPage";
 import StarTransitionOverlay from "./components/StarTransitionOverlay";
-
+import "bootstrap-icons/font/bootstrap-icons.css";
 export default function App() {
   const navigate = useNavigate();
 

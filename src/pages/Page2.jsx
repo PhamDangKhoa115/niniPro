@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import Section from "../components/Section";
 import { project } from "../data/projectContent";
 import Navbar from "../components/Navbar";
+import Logo from "../assets/ELEMENT 7.png";
 
 const pageTitleVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -52,11 +53,19 @@ export default function Page2() {
           </h1>
         </motion.div>
 
-        <div className="h-12 sm:h-16 bg-brand" />
-
+        <section className="bg-brand text-white border-y border-brand/20">
+          <div className="marquee-wrap py-4 sm:py-5">
+            <div className="marquee-track text-[28px] sm:text-[46px] lg:text-[60px] font-black uppercase tracking-[0.08em]">
+              <span className="marquee-text">GIAI ĐOẠN 1 - ĐỊNH VỊ VÌ SAO</span>
+              <span className="marquee-text">GIAI ĐOẠN 1 - ĐỊNH VỊ VÌ SAO</span>
+              <span className="marquee-text">GIAI ĐOẠN 1 - ĐỊNH VỊ VÌ SAO</span>
+              <span className="marquee-text">GIAI ĐOẠN 1 - ĐỊNH VỊ VÌ SAO</span>
+            </div>
+          </div>
+        </section>
         <Section title="">
           <div className="grid gap-4 sm:grid-cols-2">
-            {p.blocks.map((b, i) => (
+            {p.event1.blocks.map((b, i) => (
               <motion.article
                 key={i}
                 variants={cardVariants}
@@ -83,69 +92,181 @@ export default function Page2() {
             ))}
           </div>
         </Section>
+        <section className="bg-brand text-white border-y border-brand/20">
+          <div className="marquee-wrap py-4 sm:py-5">
+            <div className="marquee-track text-[28px] sm:text-[46px] lg:text-[60px] font-black uppercase tracking-[0.08em]">
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 02 - KẾT QUANG DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 02 - KẾT QUANG DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 02 - KẾT QUANG DỆT SÁNG
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 02 - KẾT QUANG DỆT SÁNG
+              </span>
+            </div>
+          </div>
+        </section>
+        <Section title="">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {p.event2.blocks.map((b, i) => (
+              <motion.article
+                key={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                custom={i}
+                className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm"
+              >
+                <div className="h-44 sm:h-52 bg-brand-soft overflow-hidden">
+                  <div className="h-full w-full bg-brand-soft" />
+                </div>
 
-        <footer className="bg-brand text-white">
-          <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-8 sm:py-14">
-            <div className="grid gap-6 sm:gap-10 md:grid-cols-[420px_1fr] items-stretch">
-              <div className="flex justify-center md:justify-start">
-                <div
-                  className="
-                    w-full bg-brand-soft rounded-xl
-                    aspect-[4/3]
-                    max-w-[360px]
-                    md:max-w-none
-                    md:aspect-auto
-                  "
+                <div className="p-5">
+                  <div className="whitespace-pre-line leading-snug text-center sm:text-left w-full text-xl md:text-2xl font-extrabold font-['Times_New_Roman'] text-brandText">
+                    {b.title}
+                  </div>
+
+                  <p className="mt-2 text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText-light">
+                    {b.desc}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </Section>
+        <section className="bg-brand text-white border-y border-brand/20">
+          <div className="marquee-wrap py-4 sm:py-5">
+            <div className="marquee-track text-[28px] sm:text-[46px] lg:text-[60px] font-black uppercase tracking-[0.08em]">
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 3 - THẮP SÁNG NGÂN HÀ
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 3 - THẮP SÁNG NGÂN HÀ
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 3 - THẮP SÁNG NGÂN HÀ
+              </span>
+              <span className="marquee-text">
+                {" "}
+                GIAI ĐOẠN 3 - THẮP SÁNG NGÂN HÀ
+              </span>
+            </div>
+          </div>
+        </section>
+        <Section title="">
+          <div className="grid gap-4 sm:grid-cols-2">
+            {p.event3.blocks.map((b, i) => (
+              <motion.article
+                key={i}
+                variants={cardVariants}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.2 }}
+                custom={i}
+                className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm"
+              >
+                <div className="h-44 sm:h-52 bg-brand-soft overflow-hidden">
+                  <div className="h-full w-full bg-brand-soft" />
+                </div>
+
+                <div className="p-5">
+                  <div className="whitespace-pre-line leading-snug text-center sm:text-left w-full text-xl md:text-2xl font-extrabold font-['Times_New_Roman'] text-brandText">
+                    {b.title}
+                  </div>
+
+                  <p className="mt-2 text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText-light">
+                    {b.desc}
+                  </p>
+                </div>
+              </motion.article>
+            ))}
+          </div>
+        </Section>
+        <footer className="bg-brand border-t border-black/10">
+          <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-7">
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">
+              {/* Logo */}
+              <div className="flex justify-center md:justify-start self-start">
+                <img
+                  src={Logo}
+                  alt="SiTiGroup Logo"
+                  className="w-[170px] sm:w-[190px] object-contain mt-1 sm:py-8"
                 />
               </div>
 
-              <div className="text-center md:text-center">
-                <h2
-                  className="
-                    font-['Times_New_Roman'] tracking-[0.04em] font-extrabold text-white leading-snug
-                    text-[26px] sm:text-3xl md:text-4xl
-                  "
-                >
-                  SiTiGroup
-                </h2>
-
-                <p
-                  className="
-                    mt-3 sm:mt-6 font-['Times_New_Roman'] tracking-[0.04em] font-semibold text-white
-                    text-[14px] sm:text-[20px]
-                    break-words
-                  "
-                >
-                  <span className="no-underline">Gmail: </span>
-                  <a
-                    href="mailto:sitigroup.fptuhcm@gmail.com"
-                    className="text-white underline underline-offset-4 hover:text-white"
-                  >
-                    sitigroup.fptuhcm@gmail.com
-                  </a>
-                </p>
-
-                <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-5">
-                  <button
-                    type="button"
-                    className="
-                      w-full bg-white text-black
-                      py-2.5 sm:py-3
-                      rounded-lg
-                      font-['Times_New_Roman'] font-semibold
-                      text-[14px] sm:text-base
-                      border border-black/30
-                      transition-all duration-300
-                      hover:bg-brand hover:text-white hover:border-brand
-                    "
-                  >
+              {/* Contact */}
+              <div className="text-center md:text-left">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brand-soft font-['Times_New_Roman']">
+                  Thông tin liên hệ
+                </h3>
+                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brand-soft/90 leading-relaxed">
+                  <p>
                     <a
-                      href="https://www.facebook.com/sitigroupfuhcm"
-                      className="block w-full h-full"
+                      href="mailto:sitigroup.fptuhcm@gmail.com"
+                      className="hover:text-brand-soft/90 transition-colors"
                     >
-                      Facebook
+                      sitigroup.fptuhcm@gmail.com
                     </a>
-                  </button>
+                  </p>
+                  <p>
+                    <a
+                      href="tel:+84901234567"
+                      className="hover:text-brand-soft/90 transition-colors"
+                    >
+                      (+84) 91 588 36 88
+                    </a>
+                  </p>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="text-center md:text-left">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] font-['Times_New_Roman'] uppercase text-brand-soft">
+                  Địa chỉ
+                </h3>
+                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
+                  Lô E2a-7, Đường D1, Khu Công nghệ cao, Phường Tăng Nhơn Phú,
+                  TP. Hồ Chí Minh
+                </p>
+              </div>
+
+              {/* Social + copyright */}
+              <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase font-['Times_New_Roman'] text-brand-soft whitespace-nowrap">
+                  Theo dõi chúng tôi tại
+                </h3>
+
+                <div className="mt-8 ml-9 sm:px-12 ">
+                  <a
+                    href="https://www.facebook.com/sitigroupfuhcm"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="
+          h-12 w-12 rounded-full
+          border border-black/15
+          bg-white
+          flex items-center justify-center
+          text-[#1877f2] text-[20px]
+          hover:bg-[#1877f2] hover:text-white
+          hover:-translate-y-1 hover:shadow-md
+          transition-all duration-300 
+        "
+                    aria-label="Facebook"
+                  >
+                    <i className="bi bi-facebook"></i>
+                  </a>
                 </div>
               </div>
             </div>

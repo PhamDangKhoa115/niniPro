@@ -272,23 +272,26 @@ export default function Page1() {
                 custom={i}
                 className="overflow-hidden rounded-2xl border border-pink-200 bg-white"
               >
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={it.image}
+                    alt={it.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+
+                {/* TEXT */}
                 <div className="p-6 sm:p-7">
-                  <div className="aspect-[16/9] overflow-hidden bg-brand-soft rounded-t-2xl">
-                    <img
-                      src={it.image}
-                      alt={it.title}
-                      className="w-full h-full object-cover object-center"
-                    />
-                  </div>
                   <div className="w-full text-center sm:text-left text-[20px] md:text-[24px] lg:text-[28px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words">
                     {it.title}
                   </div>
-                  <div className="text-center sm:text-left w-full text-[14px] sm:py-4 sm:text-[15px] font-extrabold font-['Times_New_Roman']  tracking-[0.03em] text-brandText-light whitespace-pre-line">
+
+                  <div className="text-center sm:text-left w-full mt-3 text-[14px] sm:text-[15px] font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light whitespace-pre-line">
                     {it.desc}
                   </div>
 
                   {it.special && (
-                    <p className="mt-2 text-[12px] sm:text-[16px] font-bold text-brandbrown whitespace-pre-line">
+                    <p className="mt-3 text-[12px] sm:text-[16px] font-bold text-brandbrown whitespace-pre-line">
                       {it.special}
                     </p>
                   )}
@@ -310,7 +313,13 @@ export default function Page1() {
                 custom={i}
                 className="overflow-hidden rounded-2xl border border-pink-200 bg-white"
               >
-                <div className="h-44 sm:h-52 bg-pink-50"></div>
+                <div className="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={it.image}
+                    alt={it.title}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
                 <div className="p-5">
                   <div className="text-center sm:text-left w-full text-[22px] md:text-[26px] lg:text-[30px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText">
                     {it.title}
@@ -356,7 +365,7 @@ export default function Page1() {
             ))}
           </div>
         </Section>
-        <div className="h-9 bg-brand" />
+        {/* <div className="h-9 bg-brand" />
         <Section title={p.memories.title}>
           <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
             {p.memories.photos.map((src, i) => (
@@ -373,7 +382,7 @@ export default function Page1() {
               </motion.div>
             ))}
           </div>
-        </Section>
+        </Section> */}
         <footer className="bg-brand border-t border-black/10">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">
@@ -388,14 +397,14 @@ export default function Page1() {
 
               {/* Contact */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brand-soft font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
-                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brandtexting/90 leading-relaxed">
+                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"
-                      className="hover:text-brandtexting/90 transition-colors"
+                      className="hover:text-brand-soft/90 transition-colors"
                     >
                       sitigroup.fptuhcm@gmail.com
                     </a>
@@ -403,7 +412,7 @@ export default function Page1() {
                   <p>
                     <a
                       href="tel:+84901234567"
-                      className="hover:text-brandtexting/90 transition-colors"
+                      className="hover:text-brand-soft/90 transition-colors"
                     >
                       (+84) 91 588 36 88
                     </a>
@@ -413,10 +422,10 @@ export default function Page1() {
 
               {/* Address */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] font-['Times_New_Roman'] uppercase text-brand-soft">
                   Địa chỉ
                 </h3>
-                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold text-brandtexting/90 leading-relaxed">
+                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
                   Lô E2a-7, Đường D1, Khu Công nghệ cao, Phường Tăng Nhơn Phú,
                   TP. Hồ Chí Minh
                 </p>
@@ -424,11 +433,11 @@ export default function Page1() {
 
               {/* Social + copyright */}
               <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brandtexting whitespace-nowrap">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase font-['Times_New_Roman'] text-brand-soft whitespace-nowrap">
                   Theo dõi chúng tôi tại
                 </h3>
 
-                <div className="mt-7 ">
+                <div className="mt-8 ml-9 sm:px-12 ">
                   <a
                     href="https://www.facebook.com/sitigroupfuhcm"
                     target="_blank"

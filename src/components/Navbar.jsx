@@ -125,87 +125,92 @@ export default function Navbar() {
           </div>
 
           <nav className="flex items-center justify-end gap-6 lg:gap-8">
-            {items.map((it) => (
-              <NavLink
-                key={it.to}
-                to={it.to}
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                className={navBaseClass}
-              >
-                {it.label}
-              </NavLink>
-            ))}
-
-            {/* DROPDOWN GIỚI THIỆU */}
-            <div
-              className="relative"
-              onMouseEnter={() => setAboutOpen(true)}
-              onMouseLeave={() => setAboutOpen(false)}
-            >
-              <button
-                type="button"
-                className={[
-                  "no-underline font-['Times_New_Roman'] uppercase transition-all",
-                  "text-[16px] lg:text-[18px] font-extrabold tracking-[0.06em]",
-                  "inline-flex items-center gap-2",
-                  scrolled
-                    ? "text-white/90 hover:text-white"
-                    : "text-brandText/90 hover:text-brandText",
-                ].join(" ")}
-              >
-                GIỚI THIỆU
-                <svg
-                  className={`transition-transform duration-300 ${
-                    aboutOpen ? "rotate-180" : ""
-                  }`}
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  fill="none"
+            {items.map((it, index) => (
+              <div key={it.to} className="flex items-center gap-6 lg:gap-8">
+                <NavLink
+                  to={it.to}
+                  onClick={() =>
+                    window.scrollTo({ top: 0, behavior: "smooth" })
+                  }
+                  className={navBaseClass}
                 >
-                  <path
-                    d="M6 9l6 6 6-6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </button>
+                  {it.label}
+                </NavLink>
 
-              <div
-                className={[
-                  "absolute right-0 top-full pt-4 transition-all duration-300",
-                  aboutOpen
-                    ? "opacity-100 visible translate-y-0"
-                    : "opacity-0 invisible -translate-y-2",
-                ].join(" ")}
-              >
-                <div className="min-w-[280px] overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-xl">
-                  <NavLink
-                    to="/gioi-thieu/ve-siti-group"
-                    onClick={() => {
-                      setAboutOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="block px-5 py-4 no-underline font-['Times_New_Roman'] font-extrabold uppercase text-brandText hover:bg-brand/10 transition"
+                {/* GIỚI THIỆU nằm ngay cạnh TRANG CHỦ */}
+                {index === 0 && (
+                  <div
+                    className="relative"
+                    onMouseEnter={() => setAboutOpen(true)}
+                    onMouseLeave={() => setAboutOpen(false)}
                   >
-                    VỀ SITI GROUP
-                  </NavLink>
+                    <button
+                      type="button"
+                      className={[
+                        "no-underline font-['Times_New_Roman'] uppercase transition-all",
+                        "text-[16px] lg:text-[18px] font-extrabold tracking-[0.06em]",
+                        "inline-flex items-center gap-2",
+                        scrolled
+                          ? "text-white/90 hover:text-white"
+                          : "text-brandText/90 hover:text-brandText",
+                      ].join(" ")}
+                    >
+                      GIỚI THIỆU
+                      <svg
+                        className={`transition-transform duration-300 ${
+                          aboutOpen ? "rotate-180" : ""
+                        }`}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                      >
+                        <path
+                          d="M6 9l6 6 6-6"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        />
+                      </svg>
+                    </button>
 
-                  <NavLink
-                    to="/gioi-thieu/ve-uso-organization"
-                    onClick={() => {
-                      setAboutOpen(false);
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                    }}
-                    className="block px-5 py-4 no-underline font-['Times_New_Roman'] font-extrabold uppercase text-brandText hover:bg-brand/10 transition border-t border-brand/10"
-                  >
-                    VỀ USO ORGANIZATION
-                  </NavLink>
-                </div>
+                    <div
+                      className={[
+                        "absolute left-0 top-full pt-4 transition-all duration-300",
+                        aboutOpen
+                          ? "opacity-100 visible translate-y-0"
+                          : "opacity-0 invisible -translate-y-2",
+                      ].join(" ")}
+                    >
+                      <div className="min-w-[340px] overflow-hidden rounded-2xl border border-brand/10 bg-white shadow-xl">
+                        <NavLink
+                          to="/gioi-thieu/ve-siti-group"
+                          onClick={() => {
+                            setAboutOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className="block px-5 py-4 no-underline font-['Times_New_Roman'] font-extrabold uppercase text-brandText hover:bg-brand/10 transition whitespace-nowrap"
+                        >
+                          VỀ SITI GROUP
+                        </NavLink>
+
+                        <NavLink
+                          to="/gioi-thieu/ve-uso-organization"
+                          onClick={() => {
+                            setAboutOpen(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className="block px-5 py-4 no-underline font-['Times_New_Roman'] font-extrabold uppercase text-brandText hover:bg-brand/10 transition whitespace-nowrap"
+                        >
+                          VỀ USO ORGANIZATION
+                        </NavLink>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
+            ))}
           </nav>
         </div>
 
@@ -225,113 +230,116 @@ export default function Navbar() {
             ].join(" ")}
           >
             <div className="flex flex-col p-3">
-              {items.map((it) => (
-                <NavLink
-                  key={it.to}
-                  to={it.to}
-                  onClick={() => {
-                    setOpen(false);
-                    setAboutMobileOpen(false);
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
-                  className={({ isActive }) =>
-                    [
-                      "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase",
-                      "text-[16px] font-extrabold transition tracking-[0.05em]",
-                      scrolled
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
-                        : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
-                      isActive
-                        ? scrolled
-                          ? "bg-white/10"
-                          : "bg-brand/10"
-                        : "",
-                    ].join(" ")
-                  }
-                >
-                  {it.label}
-                </NavLink>
-              ))}
-
-              {/* GIỚI THIỆU MOBILE */}
-              <div className="mt-1">
-                <button
-                  type="button"
-                  onClick={() => setAboutMobileOpen((v) => !v)}
-                  className={[
-                    "w-full px-3 py-3 rounded-xl text-left font-['Times_New_Roman'] uppercase",
-                    "text-[16px] font-extrabold transition tracking-[0.05em]",
-                    "flex items-center justify-between",
-                    scrolled
-                      ? "text-white/90 hover:text-white hover:bg-white/10"
-                      : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
-                  ].join(" ")}
-                >
-                  <span>GIỚI THIỆU</span>
-                  <svg
-                    className={`transition-transform duration-300 ${
-                      aboutMobileOpen ? "rotate-180" : ""
-                    }`}
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
+              {items.map((it, index) => (
+                <div key={it.to}>
+                  <NavLink
+                    to={it.to}
+                    onClick={() => {
+                      setOpen(false);
+                      setAboutMobileOpen(false);
+                      window.scrollTo({ top: 0, behavior: "smooth" });
+                    }}
+                    className={({ isActive }) =>
+                      [
+                        "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase block",
+                        "text-[16px] font-extrabold transition tracking-[0.05em]",
+                        scrolled
+                          ? "text-white/90 hover:text-white hover:bg-white/10"
+                          : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
+                        isActive
+                          ? scrolled
+                            ? "bg-white/10"
+                            : "bg-brand/10"
+                          : "",
+                      ].join(" ")
+                    }
                   >
-                    <path
-                      d="M6 9l6 6 6-6"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </button>
+                    {it.label}
+                  </NavLink>
 
-                <div
-                  className={[
-                    "overflow-hidden transition-all duration-300",
-                    aboutMobileOpen ? "max-h-40 mt-2" : "max-h-0",
-                  ].join(" ")}
-                >
-                  <div className="ml-3 flex flex-col gap-2">
-                    <NavLink
-                      to="/gioi-thieu/ve-siti-group"
-                      onClick={() => {
-                        setOpen(false);
-                        setAboutMobileOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                      className={[
-                        "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase",
-                        "text-[15px] font-extrabold transition tracking-[0.05em]",
-                        scrolled
-                          ? "text-white/90 hover:text-white hover:bg-white/10"
-                          : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
-                      ].join(" ")}
-                    >
-                      VỀ SITI GROUP
-                    </NavLink>
+                  {/* GIỚI THIỆU nằm ngay dưới TRANG CHỦ trên mobile */}
+                  {index === 0 && (
+                    <div className="mt-1">
+                      <button
+                        type="button"
+                        onClick={() => setAboutMobileOpen((v) => !v)}
+                        className={[
+                          "w-full px-3 py-3 rounded-xl text-left font-['Times_New_Roman'] uppercase",
+                          "text-[16px] font-extrabold transition tracking-[0.05em]",
+                          "flex items-center justify-between",
+                          scrolled
+                            ? "text-white/90 hover:text-white hover:bg-white/10"
+                            : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
+                        ].join(" ")}
+                      >
+                        <span>GIỚI THIỆU</span>
+                        <svg
+                          className={`transition-transform duration-300 ${
+                            aboutMobileOpen ? "rotate-180" : ""
+                          }`}
+                          width="16"
+                          height="16"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                        >
+                          <path
+                            d="M6 9l6 6 6-6"
+                            stroke="currentColor"
+                            strokeWidth="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          />
+                        </svg>
+                      </button>
 
-                    <NavLink
-                      to="/gioi-thieu/ve-uso-organization"
-                      onClick={() => {
-                        setOpen(false);
-                        setAboutMobileOpen(false);
-                        window.scrollTo({ top: 0, behavior: "smooth" });
-                      }}
-                      className={[
-                        "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase",
-                        "text-[15px] font-extrabold transition tracking-[0.05em]",
-                        scrolled
-                          ? "text-white/90 hover:text-white hover:bg-white/10"
-                          : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
-                      ].join(" ")}
-                    >
-                      VỀ USO ORGANIZATION
-                    </NavLink>
-                  </div>
+                      <div
+                        className={[
+                          "overflow-hidden transition-all duration-300",
+                          aboutMobileOpen ? "max-h-40 mt-2" : "max-h-0",
+                        ].join(" ")}
+                      >
+                        <div className="ml-3 flex flex-col gap-2">
+                          <NavLink
+                            to="/gioi-thieu/ve-siti-group"
+                            onClick={() => {
+                              setOpen(false);
+                              setAboutMobileOpen(false);
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                            }}
+                            className={[
+                              "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase",
+                              "text-[15px] font-extrabold transition tracking-[0.05em]",
+                              scrolled
+                                ? "text-white/90 hover:text-white hover:bg-white/10"
+                                : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
+                            ].join(" ")}
+                          >
+                            VỀ SITI GROUP
+                          </NavLink>
+
+                          <NavLink
+                            to="/gioi-thieu/ve-uso-organization"
+                            onClick={() => {
+                              setOpen(false);
+                              setAboutMobileOpen(false);
+                              window.scrollTo({ top: 0, behavior: "smooth" });
+                            }}
+                            className={[
+                              "px-3 py-3 rounded-xl no-underline font-['Times_New_Roman'] uppercase",
+                              "text-[15px] font-extrabold transition tracking-[0.05em]",
+                              scrolled
+                                ? "text-white/90 hover:text-white hover:bg-white/10"
+                                : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
+                            ].join(" ")}
+                          >
+                            VỀ USO ORGANIZATION
+                          </NavLink>
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>

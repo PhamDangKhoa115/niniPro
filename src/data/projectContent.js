@@ -110,9 +110,9 @@ export const project = {
       title: "CÁC HOẠT ĐỘNG",
       blocks: [
         {
-          title: "CHƯƠNG TRÌNH \n “NGƯỜI DỆT SÁNG” ",
+          title: "CHƯƠNG TRÌNH “NGƯỜI DỆT SÁNG” ",
           image: "/Vision.png",
-          desc: " Chuyến đi thực tế đến các địa điểm hỗ trợ trẻ em khuyết tật cùng “Người Dệt Sáng”.",
+          desc: " Chuyến đi thực tế đến các địa điểm hỗ trợ trẻ em khuyết tật cùng \n “Người Dệt Sáng”.",
         },
         {
           title: "BOOTH TRẢI NGHIỆM ",

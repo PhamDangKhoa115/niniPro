@@ -84,7 +84,7 @@ export default function Page2() {
                     {b.title}
                   </div>
 
-                  <p className="mt-2 text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText-light">
+                  <p className="mt-2 text-center sm:text-left w-full text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText-light whitespace-pre-line">
                     {b.desc}
                   </p>
                 </div>
@@ -211,7 +211,7 @@ export default function Page2() {
                 <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
-                <div className="mt-4 space-y-2 text-[10px] sm:text-[12px] font-semibold text-brand-soft/90 leading-relaxed">
+                <div className="mt-4 space-y-2 text-[10px] sm:text-[15px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"

@@ -242,18 +242,18 @@ export default function Page1() {
                   />
                 </div>
 
-                <div className="p-5 flex flex-col flex-1 min-h-[360px]">
-                  <h3 className="text-left text-[22px] md:text-[26px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words min-h-[72px]">
+                <div className="p-5 h-[500px] grid grid-rows-[90px_1fr_80px]">
+                  <h3 className="text-left text-[22px] md:text-[26px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words overflow-hidden">
                     {it.title}
                   </h3>
 
-                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light">
+                  <p className="mt-3 text-left text-[14px] sm:text-[16px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light overflow-hidden">
                     {it.desc}
                   </p>
 
-                  <div className="mt-auto pt-4 min-h-[68px]">
+                  <div className="pt-4 w-full">
                     {it.special && (
-                      <p className="text-left text-[12px] sm:text-[16px] leading-snug font-bold font-['Times_New_Roman'] text-brandbrown whitespace-pre-line">
+                      <p className="w-full text-left text-[12px] sm:text-[16px] leading-snug font-bold font-['Times_New_Roman'] text-brandbrown whitespace-pre-line">
                         {it.special}
                       </p>
                     )}
@@ -289,7 +289,7 @@ export default function Page1() {
                     {it.title}
                   </h3>
 
-                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light whitespace-pre-line">
+                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light min-h-[160px]">
                     {it.desc}
                   </p>
 
@@ -405,7 +405,7 @@ export default function Page1() {
                 <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
-                <div className="mt-4 space-y-2 text-[10px] sm:text-[12px] font-semibold text-brand-soft/90 leading-relaxed">
+                <div className="mt-4 space-y-2 text-[10px] sm:text-[15px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"

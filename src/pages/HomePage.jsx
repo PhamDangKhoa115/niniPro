@@ -31,7 +31,31 @@ export default function HomePage({ startTransition }) {
   }, []);
 
   // user
+  const fadeUp = {
+    hidden: { opacity: 0, y: 30 },
+    show: (delay = 0) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    }),
+  };
 
+  const slideInRight = {
+    hidden: { opacity: 0, x: 60 },
+    show: (delay = 0) => ({
+      opacity: 1,
+      x: 0,
+      transition: {
+        delay,
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    }),
+  };
   const [nameInput, setNameInput] = useState(
     () => localStorage.getItem(MY_NAME_KEY) || "",
   );
@@ -171,37 +195,61 @@ export default function HomePage({ startTransition }) {
         />
       </div>
 
-      {/* Center Logo (xuất hiện dần) */}
       <motion.div
-        className="fixed left-1/2 top-[45%] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-30
-             scale-[1.65] sm:scale-100"
+        className="fixed left-1/2 top-[35%] translate-x-[80%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-30"
         initial={{
           opacity: 0,
-          scale: 0.96,
-          y: 10,
+          x: -150,
+          y: 20,
           filter: "blur(6px)",
-          x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
         }}
         animate={
           started
             ? {
                 opacity: 1,
-                scale: 1,
                 y: 0,
                 filter: "blur(0px)",
-                x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
               }
             : {
                 opacity: 0,
-                scale: 0.96,
-                y: 10,
-                filter: "blur(6px)",
-                x: isMobile ? LOGO_SHIFT_MOBILE : LOGO_SHIFT_DESKTOP,
               }
         }
-        transition={{ duration: 1.1, ease: "easeOut" }}
+        transition={{ duration: 1.2, ease: "easeOut" }}
       >
-        <CenterLogo />
+        {/* TITLE */}
+        <motion.h1
+          variants={fadeUp}
+          initial="hidden"
+          animate={started ? "show" : "hidden"}
+          custom={0.2}
+          className="
+    font-beaufort
+    text-[clamp(32px,6vw,60px)]
+    leading-[0.95]
+    text-white
+    whitespace-nowrap
+    text-center
+  "
+        >
+          HÀNH TRÌNH HY VỌNG 2026
+        </motion.h1>
+
+        {/* SUBTITLE */}
+        <motion.h2
+          variants={slideInRight}
+          initial="hidden"
+          animate={started ? "show" : "hidden"}
+          custom={0.4}
+          className="
+      mt-4
+      font-beaufort italic
+      text-[28px] sm:text-[48px] lg:text-[45px]
+      text-white/90
+      drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]
+    "
+        >
+          Thấu Sao Dệt Sáng
+        </motion.h2>
       </motion.div>
 
       {/* CARD nhập tên -> morph góc trái */}

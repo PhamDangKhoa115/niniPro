@@ -248,7 +248,7 @@ export default function Page2() {
                   Theo dõi chúng tôi tại
                 </h3>
 
-                <div className="mt-8 ml-9 sm:px-12 ">
+                <div className="mt-6 ml-12 sm:px-12 ">
                   <a
                     href="https://www.facebook.com/sitigroupfuhcm"
                     target="_blank"

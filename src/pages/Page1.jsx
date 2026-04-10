@@ -326,7 +326,7 @@ export default function Page1() {
                   />
                 </div>
                 <div className="p-5">
-                  <div className="text-left sm:text-left w-full text-[22px] md:text-[26px] lg:text-[30px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText">
+                  <div className="text-center sm:text-left w-full text-[22px] md:text-[26px] lg:text-[30px] sm:text-sm font-extrabold font-['Times_New_Roman'] text-brandText">
                     {it.title}
                   </div>
                   <div className="text-left sm:text-left w-full text-[15px] sm:py-4 sm:text-[15px] font-extrabold font-['Times_New_Roman']  tracking-[0.03em] text-brandText-light whitespace-pre-line">

@@ -224,17 +224,18 @@ export default function HomePage({ startTransition }) {
           {/* TITLE */}
           <motion.h1
             className="
-      font-beaufort
-      text-[40px] sm:text-[72px] lg:text-[104px]
-      leading-[1.05]
-      text-white
-      text-center
-      drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]
-    "
+    font-beaufort
+    text-[clamp(20px,6vw,104px)]
+    leading-[1.05]
+    text-white
+    text-center
+    whitespace-nowrap
+    drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]
+    overflow-hidden text-ellipsis
+  "
           >
             HÀNH TRÌNH HY VỌNG 2026
           </motion.h1>
-
           {/* SUBTITLE */}
           <motion.h2
             className="

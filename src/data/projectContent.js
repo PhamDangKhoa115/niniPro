@@ -87,7 +87,7 @@ export const project = {
             "TỔNG SỐ TIỀN GÂY QUỸ: 20.322.000 VND\nQUY MÔ GIÚP ĐỠ: 140 TRẺ EM-12 CỤ BÀ NEO ĐƠN",
         },
         {
-          title: "DỰ ÁN HÀNH TRÌNH HY VỌNG 2025 \n VƯƠN MẦM ƯỚC MƠ",
+          title: "HÀNH TRÌNH HY VỌNG 2025 \n VƯƠN MẦM ƯỚC MƠ",
           desc: "Dự án Hành trình hy vọng 2025 - Vươn Mầm Ước Mơ là chuyến hành trình ghé thăm Trường Nuôi Dạy Trẻ Em Khuyết Tật Huyện Củ Chi, nơi SiTiGroup đồng hành cùng các em trong hành trình ươm mầm và nuôi dưỡng ước mơ, đồng thời lan tỏa thông điệp tích cực đến cộng đồng về khát vọng theo đuổi giấc mơ và đam mê của mỗi người.   ",
           image: "/VMUU.png",
           special:

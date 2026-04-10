@@ -173,10 +173,10 @@ export default function HomePage({ startTransition }) {
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-transform duration-75"
         style={{
           backgroundImage: `url(${space})`,
-          transform: `scale(${1 + (bgZoom - 1) * 0.25}) translate(${
-            -bgOffset.x * 0.03
-          }px, ${-bgOffset.y * 0.03}px)`,
-          transformOrigin: "50% 50%",
+          transform: `scale(${1 + (bgZoom - 1) * 0.55}) translate(${
+            -bgOffset.x * 0.06
+          }px, ${-bgOffset.y * 0.06}px)`,
+          transformOrigin: "50% 80%",
         }}
       />
 

@@ -97,6 +97,11 @@ body,
   src: url("/src/assets/fonts/BarlowCondensed-Regular.ttf") format("truetype");
   font-weight: normal;
 }
+@font-face {
+  font-family: "Barlow Condensed";
+  src: url("/src/assets/fonts/BarlowCondensed-Heavy.ttf") format("truetype");
+  font-weight: heavy;
+}
 html {
   scroll-behavior: smooth;
 }

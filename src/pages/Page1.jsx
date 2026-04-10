@@ -84,7 +84,7 @@ function HeaderBar() {
             initial="hidden"
             animate="show"
             custom={0.1}
-            className="font-beaufort font-normal text-[48px] sm:text-[100px] leading-[0.95] text-brandtexting"
+            className="font-beaufort font-extrabold text-[48px] sm:text-[100px] leading-[0.95] text-brandtexting"
           >
             HÀNH TRÌNH HY VỌNG 2026
           </motion.h1>
@@ -104,7 +104,7 @@ function HeaderBar() {
             initial="hidden"
             animate="show"
             custom={0.55}
-            className="mt-4 text-sm sm:text-base text-white/80 text-center sm:text-left  whitespace-pre-line"
+            className="mt-4 text-sm sm:text-[20px] text-white/80 text-center sm:text-left  whitespace-pre-line"
           >
             Thấu hiểu những vì sao, cùng dệt lên bầu trời hy vọng.
           </motion.p>

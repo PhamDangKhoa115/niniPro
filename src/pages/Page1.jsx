@@ -291,7 +291,7 @@ export default function Page1() {
                   </div>
 
                   {it.special && (
-                    <p className="mt-3 text-[12px] sm:text-[16px] font-bold text-brandbrown whitespace-pre-line">
+                    <p className="mt-3 text-[12px] sm:text-[16px] font-bold text-brandbrown font-['Times_New_Roman'] whitespace-pre-line">
                       {it.special}
                     </p>
                   )}
@@ -397,22 +397,22 @@ export default function Page1() {
 
               {/* Contact */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-brand-soft font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
                 <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"
-                      className="hover:text-brand-soft/90 transition-colors"
+                      className="text-white no-underline hover:opacity-80 transition"
                     >
                       sitigroup.fptuhcm@gmail.com
                     </a>
                   </p>
                   <p>
                     <a
-                      href="tel:+84901234567"
-                      className="hover:text-brand-soft/90 transition-colors"
+                      href="tel:+84915883688"
+                      className="text-white no-underline hover:opacity-80 transition"
                     >
                       (+84) 91 588 36 88
                     </a>
@@ -422,7 +422,7 @@ export default function Page1() {
 
               {/* Address */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] font-['Times_New_Roman'] uppercase text-brand-soft">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Địa chỉ
                 </h3>
                 <p className="mt-4 text-[18px] sm:text-[20px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
@@ -433,7 +433,7 @@ export default function Page1() {
 
               {/* Social + copyright */}
               <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase font-['Times_New_Roman'] text-brand-soft whitespace-nowrap">
+                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Theo dõi chúng tôi tại
                 </h3>
 

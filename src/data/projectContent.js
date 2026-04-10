@@ -112,12 +112,12 @@ export const project = {
         {
           title: "CHƯƠNG TRÌNH “NGƯỜI DỆT SÁNG” ",
           image: "/Vision.png",
-          desc: " Chuyến đi thực tế đến các địa điểm hỗ trợ trẻ em khuyết tật cùng “Người Dệt Sáng”..",
+          desc: " Chuyến đi thực tế đến các địa điểm hỗ trợ trẻ em khuyết tật cùng “Người Dệt Sáng”.",
         },
         {
           title: "BOOTH TRẢI NGHIỆM ",
           image: "/Vision.png",
-          desc: " Hoạt động tương tác & trò chơ",
+          desc: " Hoạt động tương tác & trò chơi.",
         },
       ],
     },
@@ -132,7 +132,7 @@ export const project = {
         {
           title: "TRẠM TRẢI NGHIỆM CHẠM ÁNH SAO",
           image: "/Vision.png",
-          desc: "Các trạm trải nghiệm mang đến hoạt động mô phỏng sinh hoạt của người khuyết tật, qua đó giúp người tham gia thấu hiểu sâu sắc và nuôi dưỡng sự đồng cảm",
+          desc: "Các trạm trải nghiệm mang đến hoạt động mô phỏng sinh hoạt của người khuyết tật, qua đó giúp người tham gia thấu hiểu sâu sắc và nuôi dưỡng sự đồng cảm.",
         },
         {
           title: "TRẠM NHẮN GỬI TỎA ÁNH SÁNG",

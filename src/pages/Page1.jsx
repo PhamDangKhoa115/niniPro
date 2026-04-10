@@ -285,17 +285,17 @@ export default function Page1() {
                 </div>
 
                 <div className="p-6 sm:p-7 flex flex-col flex-1 min-h-[360px]">
-                  <h3 className="text-left text-[20px] md:text-[24px] lg:text-[28px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words min-h-[76px]">
+                  <h3 className="text-right text-[20px] md:text-[24px] lg:text-[28px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words min-h-[76px]">
                     {it.title}
                   </h3>
 
-                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light min-h-[160px]">
+                  <p className="mt-3 text-right text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light min-h-[160px]">
                     {it.desc}
                   </p>
 
                   <div className="mt-auto pt-5 min-h-[72px]">
                     {it.special && (
-                      <p className="text-left text-[12px] sm:text-[16px] leading-snug font-bold text-brandbrown font-['Times_New_Roman'] whitespace-pre-line">
+                      <p className="text-right text-[12px] sm:text-[16px] leading-snug font-bold text-brandbrown font-['Times_New_Roman'] whitespace-pre-line">
                         {it.special}
                       </p>
                     )}

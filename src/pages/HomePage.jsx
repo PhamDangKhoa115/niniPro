@@ -196,10 +196,10 @@ export default function HomePage({ startTransition }) {
       </div>
 
       <motion.div
-        className="fixed left-1/2 top-[35%] translate-x-[80%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none z-30"
+        className="fixed left-[8%] top-[35%] -translate-y-1/2 w-[92vw] text-left pointer-events-none z-30"
         initial={{
           opacity: 0,
-          x: -150,
+          x: -220,
           y: 20,
           filter: "blur(6px)",
         }}
@@ -207,6 +207,7 @@ export default function HomePage({ startTransition }) {
           started
             ? {
                 opacity: 1,
+                x: 0,
                 y: 0,
                 filter: "blur(0px)",
               }
@@ -215,43 +216,40 @@ export default function HomePage({ startTransition }) {
               }
         }
         transition={{ duration: 1.2, ease: "easeOut" }}
+        style={{
+          transform: `translate(calc(-50% + ${bgOffset.x * 0.18}px), calc(-50% + ${bgOffset.y * 0.1}px))`,
+        }}
       >
-        {/* TITLE */}
-        <motion.h1
-          variants={fadeUp}
-          initial="hidden"
-          animate={started ? "show" : "hidden"}
-          custom={0.2}
-          className="
-    font-beaufort
-    text-[clamp(32px,6vw,60px)]
-    leading-[0.95]
-    text-white
-    whitespace-nowrap
-    text-center
-  "
-        >
-          HÀNH TRÌNH HY VỌNG 2026
-        </motion.h1>
+        <motion.div className="fixed left-[5%] top-[90%]  w-[80vw] pointer-events-none z-30 flex flex-col items-center">
+          {/* TITLE */}
+          <motion.h1
+            className="
+      font-beaufort
+      text-[40px] sm:text-[72px] lg:text-[104px]
+      leading-[1.05]
+      text-white
+      text-center
+      drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]
+    "
+          >
+            HÀNH TRÌNH HY VỌNG 2026
+          </motion.h1>
 
-        {/* SUBTITLE */}
-        <motion.h2
-          variants={slideInRight}
-          initial="hidden"
-          animate={started ? "show" : "hidden"}
-          custom={0.4}
-          className="
+          {/* SUBTITLE */}
+          <motion.h2
+            className="
       mt-4
       font-beaufort italic
-      text-[28px] sm:text-[48px] lg:text-[45px]
+      text-[22px] sm:text-[36px]
       text-white/90
+      text-center
       drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]
     "
-        >
-          Thấu Sao Dệt Sáng
-        </motion.h2>
+          >
+            Thấu Sao Dệt Sáng
+          </motion.h2>
+        </motion.div>
       </motion.div>
-
       {/* CARD nhập tên -> morph góc trái */}
       {!started && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">

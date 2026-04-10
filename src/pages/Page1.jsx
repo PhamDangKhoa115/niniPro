@@ -84,11 +84,17 @@ function HeaderBar() {
             initial="hidden"
             animate="show"
             custom={0.1}
-            className="font-beaufort font-extrabold text-[48px] sm:text-[100px] leading-[0.95] text-brandtexting"
+            className="
+    font-beaufort
+    font-extrabold
+    text-brandtexting
+    leading-[0.95]
+    whitespace-nowrap
+    text-[clamp(20px,7vw,100px)]
+  "
           >
             HÀNH TRÌNH HY VỌNG 2026
           </motion.h1>
-
           <motion.h2
             variants={slideInRight}
             initial="hidden"

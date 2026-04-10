@@ -227,7 +227,7 @@ export default function HomePage({ startTransition }) {
     font-beaufort
     text-[clamp(20px,6vw,104px)]
     leading-[1.05]
-    text-white
+    text-brandtexting
     text-center
     whitespace-nowrap
     drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]
@@ -242,7 +242,7 @@ export default function HomePage({ startTransition }) {
       mt-4
       font-beaufort italic
       text-[22px] sm:text-[36px]
-      text-white/90
+      text-brandtexting/80
       text-center
       drop-shadow-[0_4px_20px_rgba(0,0,0,0.5)]
     "

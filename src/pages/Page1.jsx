@@ -233,7 +233,7 @@ export default function Page1() {
           <CardCarousel
             items={campaignCards}
             renderCard={(it) => (
-              <article className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm">
+              <article className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm flex flex-col h-full">
                 <div className="aspect-[16/9] overflow-hidden bg-brand-soft rounded-t-2xl">
                   <img
                     src={it.image}
@@ -241,19 +241,23 @@ export default function Page1() {
                     className="w-full h-full object-cover object-center"
                   />
                 </div>
-                <div className="p-5">
-                  <h3 className="text-[22px] md:text-[26px] font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line">
+
+                <div className="p-5 flex flex-col flex-1 min-h-[360px]">
+                  <h3 className="text-left text-[22px] md:text-[26px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words min-h-[72px]">
                     {it.title}
                   </h3>
 
-                  <p className="mt-3 text-[14px] sm:text-sm font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light">
+                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light">
                     {it.desc}
                   </p>
-                  {it.special && (
-                    <p className="mt-2 text-[12px] sm:text-[16px] font-bold font-['Times_New_Roman'] text-brandbrown whitespace-pre-line">
-                      {it.special}
-                    </p>
-                  )}
+
+                  <div className="mt-auto pt-4 min-h-[68px]">
+                    {it.special && (
+                      <p className="text-left text-[12px] sm:text-[16px] leading-snug font-bold font-['Times_New_Roman'] text-brandbrown whitespace-pre-line">
+                        {it.special}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </article>
             )}
@@ -270,7 +274,7 @@ export default function Page1() {
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
                 custom={i}
-                className="overflow-hidden rounded-2xl border border-pink-200 bg-white"
+                className="overflow-hidden rounded-2xl border border-pink-200 bg-white flex flex-col"
               >
                 <div className="aspect-[16/9] overflow-hidden">
                   <img
@@ -280,21 +284,22 @@ export default function Page1() {
                   />
                 </div>
 
-                {/* TEXT */}
-                <div className="p-6 sm:p-7">
-                  <div className="w-full text-center sm:text-left text-[20px] md:text-[24px] lg:text-[28px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words">
+                <div className="p-6 sm:p-7 flex flex-col flex-1 min-h-[360px]">
+                  <h3 className="text-left text-[20px] md:text-[24px] lg:text-[28px] leading-tight font-extrabold font-['Times_New_Roman'] text-brandText whitespace-pre-line break-words min-h-[76px]">
                     {it.title}
-                  </div>
+                  </h3>
 
-                  <div className="text-center sm:text-left w-full mt-3 text-[14px] sm:text-[15px] font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light whitespace-pre-line">
+                  <p className="mt-3 text-left text-[14px] sm:text-[15px] leading-relaxed font-extrabold font-['Times_New_Roman'] tracking-[0.03em] text-brandText-light whitespace-pre-line">
                     {it.desc}
-                  </div>
+                  </p>
 
-                  {it.special && (
-                    <p className="mt-3 text-[12px] sm:text-[16px] font-bold text-brandbrown font-['Times_New_Roman'] whitespace-pre-line">
-                      {it.special}
-                    </p>
-                  )}
+                  <div className="mt-auto pt-5 min-h-[72px]">
+                    {it.special && (
+                      <p className="text-left text-[12px] sm:text-[16px] leading-snug font-bold text-brandbrown font-['Times_New_Roman'] whitespace-pre-line">
+                        {it.special}
+                      </p>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -397,14 +402,14 @@ export default function Page1() {
 
               {/* Contact */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
-                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brand-soft/90 leading-relaxed">
+                <div className="mt-4 space-y-2 text-[10px] sm:text-[12px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"
-                      className="text-white no-underline hover:opacity-80 transition"
+                      className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
                       sitigroup.fptuhcm@gmail.com
                     </a>
@@ -412,7 +417,7 @@ export default function Page1() {
                   <p>
                     <a
                       href="tel:+84915883688"
-                      className="text-white no-underline hover:opacity-80 transition"
+                      className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
                       (+84) 91 588 36 88
                     </a>
@@ -422,10 +427,10 @@ export default function Page1() {
 
               {/* Address */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Địa chỉ
                 </h3>
-                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
+                <p className="mt-4 text-[12px] sm:text-[15px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
                   Lô E2a-7, Đường D1, Khu Công nghệ cao, Phường Tăng Nhơn Phú,
                   TP. Hồ Chí Minh
                 </p>
@@ -433,7 +438,7 @@ export default function Page1() {
 
               {/* Social + copyright */}
               <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Theo dõi chúng tôi tại
                 </h3>
 

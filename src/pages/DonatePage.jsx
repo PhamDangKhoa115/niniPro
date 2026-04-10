@@ -97,14 +97,14 @@ export default function DonatePage() {
 
               {/* Contact */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Thông tin liên hệ
                 </h3>
-                <div className="mt-4 space-y-2 text-[18px] sm:text-[20px] font-semibold text-brand-soft/90 leading-relaxed">
+                <div className="mt-4 space-y-2 text-[10px] sm:text-[12px] font-semibold text-brand-soft/90 leading-relaxed">
                   <p>
                     <a
                       href="mailto:sitigroup.fptuhcm@gmail.com"
-                      className="text-white no-underline hover:opacity-80 transition"
+                      className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
                       sitigroup.fptuhcm@gmail.com
                     </a>
@@ -112,7 +112,7 @@ export default function DonatePage() {
                   <p>
                     <a
                       href="tel:+84915883688"
-                      className="text-white no-underline hover:opacity-80 transition"
+                      className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
                       (+84) 91 588 36 88
                     </a>
@@ -122,10 +122,10 @@ export default function DonatePage() {
 
               {/* Address */}
               <div className="text-center md:text-left">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Địa chỉ
                 </h3>
-                <p className="mt-4 text-[18px] sm:text-[20px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
+                <p className="mt-4 text-[12px] sm:text-[15px] font-semibold font-['Times_New_Roman'] text-brand-soft/90 leading-relaxed">
                   Lô E2a-7, Đường D1, Khu Công nghệ cao, Phường Tăng Nhơn Phú,
                   TP. Hồ Chí Minh
                 </p>
@@ -133,7 +133,7 @@ export default function DonatePage() {
 
               {/* Social + copyright */}
               <div className="flex flex-col items-center md:items-start text-center md:text-left self-start">
-                <h3 className="text-[14px] sm:text-[15px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
+                <h3 className="text-[14px] sm:text-[17px] font-extrabold tracking-[0.08em] uppercase text-white underline underline-offset-4 font-['Times_New_Roman']">
                   Theo dõi chúng tôi tại
                 </h3>
 

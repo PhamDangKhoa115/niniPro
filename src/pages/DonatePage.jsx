@@ -2,7 +2,7 @@ import { Nav } from "react-bootstrap";
 import { project } from "../data/projectContent";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/ELEMENT 7.png";
-
+import qrImg from "../assets/qrImg.jpg";
 export default function DonatePage() {
   function HeaderBar() {
     return (
@@ -28,7 +28,6 @@ export default function DonatePage() {
           </h1>
         </div>
 
-        {/* Pink bar */}
         <div className="h-12 sm:h-16 bg-brand" />
 
         {/* Content */}
@@ -36,8 +35,12 @@ export default function DonatePage() {
           <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
             <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">
               {/* Left: QR */}
-              <div className="flex">
-                <div className="w-full bg-pink-100 rounded-xl"></div>
+              <div className="w-full rounded-xl overflow-hidden group">
+                <img
+                  src={qrImg}
+                  alt="QR Donate"
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
 
               {/* Right: Text */}
@@ -70,8 +73,8 @@ export default function DonatePage() {
 
                   <div className="mt-4 space-y-2 text-[15px] sm:text-base font-semibold">
                     <div>Ngân hàng: Ngân hàng Quân Đội (MB Bank)</div>
-                    <div>Số tài khoản: 0825549830</div>
-                    <div>Tên tài khoản: PHAN THIEN TINH</div>
+                    <div>Số tài khoản: 0852866667</div>
+                    <div>Tên tài khoản: HUYNH NHA UYEN</div>
                     <div>
                       Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ SITIGROUP]{" "}
                     </div>

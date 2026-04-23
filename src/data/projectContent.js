@@ -1,5 +1,6 @@
 import { i, image } from "framer-motion/client";
-
+import ctds from "../assets/ctds.jpg";
+import booth from "../assets/booth.jpg";
 export const project = {
   brand: {
     name: "SiTiGroup",
@@ -111,12 +112,12 @@ export const project = {
       blocks: [
         {
           title: "CHƯƠNG TRÌNH “NGƯỜI DỆT SÁNG” ",
-          image: "/Vision.png",
+          image: ctds,
           desc: " Chuyến đi thực tế đến các địa điểm hỗ trợ trẻ em khuyết tật cùng \n “Người Dệt Sáng”.",
         },
         {
           title: "BOOTH TRẢI NGHIỆM ",
-          image: "/Vision.png",
+          image: booth,
           desc: " Hoạt động tương tác & trò chơi.",
         },
       ],

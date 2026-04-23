@@ -3,7 +3,8 @@ import Section from "../components/Section";
 import { project } from "../data/projectContent";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/ELEMENT 7.png";
-
+import LocationCarousel from "../components/LocationCarousel";
+import chomsao1 from "../assets/chomsao1.jpg";
 const pageTitleVariants = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -33,7 +34,80 @@ const cardVariants = {
     },
   }),
 };
-
+const locationItems = [
+  {
+    id: 1,
+    star: "[CHÒM SAO 1]",
+    title: "Cơ sở Nuôi dưỡng và Bảo trợ Trẻ em Khuyết tật Thiên Phước",
+    description:
+      "Chăm sóc trẻ khuyết tật trí tuệ, thần kinh, bại não, chậm phát triển. Độ tuổi chủ yếu từ 7 đến 30 tuổi.",
+    image: chomsao1,
+  },
+  {
+    id: 2,
+    star: "[CHÒM SAO 2]",
+    title: "Mái ấm Thiện Duyên",
+    description:
+      "Nuôi dưỡng khoảng 50 người khuyết tật từ 15 tuổi trở lên. Nhiều em chịu ảnh hưởng chất độc da cam, bại não hoặc vấn đề thần kinh, cần được chăm sóc toàn thời gian.",
+    image: chomsao1,
+  },
+  {
+    id: 3,
+    star: "[CHÒM SAO 3]",
+    title: "Mái ấm Thiên Phúc",
+    description:
+      "Chăm sóc khoảng 80 em nhỏ gặp khó khăn như khiếm thính, thiểu năng. Nơi đây hỗ trợ sinh hoạt, học tập và tạo môi trường yêu thương để các em phát triển.",
+    image: chomsao1,
+  },
+  {
+    id: 4,
+    star: "[CHÒM SAO 4]",
+    title: "Trường Khiếm thị Nhật Hồng",
+    description:
+      "Đồng hành cùng 63 em nhỏ khiếm thị từ mầm non đến cấp 2. Trung tâm giúp các em học văn hóa, rèn kỹ năng tự lập và hòa nhập xã hội.",
+    image: chomsao1,
+  },
+  {
+    id: 5,
+    star: "[CHÒM SAO 5]",
+    title: "Mái ấm Từ Tâm",
+    description:
+      "Chăm sóc khoảng 80 em nhỏ mồ côi, mang nhiều dạng khuyết tật như vận động, trí tuệ, nghe nói. Các em được học tập và sinh hoạt phù hợp với khả năng riêng, độ tuổi phần lớn từ 18 đến 20 tuổi.",
+    image: chomsao1,
+  },
+  {
+    id: 6,
+    star: "[CHÒM SAO 6]",
+    title: "Trường Hy Vọng Quận 6",
+    description:
+      "Đồng hành cùng 145 học sinh khuyết tật bậc tiểu học. Trong đó có trẻ khiếm thính, tự kỷ, chậm phát triển trí tuệ và tăng động.",
+    image: chomsao1,
+  },
+  {
+    id: 7,
+    star: "[CHÒM SAO 7]",
+    title: "Trường giáo dục chuyên biệt Hoàng Mai",
+    description:
+      "Chăm sóc và giáo dục 110 học sinh khuyết tật từ 5–18 tuổi. Các em gặp tình trạng bại não, Down, tự kỷ, chậm ngôn ngữ hoặc chậm nhận thức.",
+    image: chomsao1,
+  },
+  {
+    id: 8,
+    star: "[CHÒM SAO 8]",
+    title: "Trường Khuyết tật Thanh Tâm",
+    description:
+      "Đồng hành cùng 22 em từ trẻ nhỏ đến thanh thiếu niên, chủ yếu gặp khó khăn về trí tuệ, chậm phát triển và hạn chế nhận thức.",
+    image: chomsao1,
+  },
+  {
+    id: 9,
+    star: "[CHÒM SAO 9]",
+    title: "Mái ấm Thiên Thần",
+    description:
+      "Chăm sóc 21 em nhỏ độ tuổi thiếu nhi bị bại não, rối loạn phát triển trong đó nhiều em phải nằm tại chỗ hoặc ăn qua ống thông.",
+    image: chomsao1,
+  },
+];
 export default function Page2() {
   const p = project.page2;
 
@@ -76,7 +150,7 @@ export default function Page2() {
                 className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm"
               >
                 <div className="h-44 sm:h-52 bg-brand-soft overflow-hidden">
-                  <div className="h-full w-full bg-brand-soft" />
+                  <img src={b.image} className="h-full w-full object-cover" />
                 </div>
 
                 <div className="p-5">
@@ -194,6 +268,7 @@ export default function Page2() {
             ))}
           </div>
         </Section>
+        {/* <LocationCarousel items={locationItems} autoPlayMs={3500} /> */}
         <footer className="bg-brand border-t border-black/10">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">

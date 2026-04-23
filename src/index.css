@@ -109,3 +109,63 @@ html {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+.location-swiper {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.location-swiper .swiper-slide {
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
+  opacity: 0.45;
+}
+
+.location-swiper .swiper-slide-active {
+  opacity: 1;
+}
+
+.location-swiper .swiper-button-next,
+.location-swiper .swiper-button-prev {
+  width: 62px;
+  height: 62px;
+  border-radius: 9999px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  color: #123c69;
+}
+
+.location-swiper .swiper-button-next::after,
+.location-swiper .swiper-button-prev::after {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.location-swiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: rgba(18, 60, 105, 0.25);
+  opacity: 1;
+}
+
+.location-swiper .swiper-pagination-bullet-active {
+  width: 32px;
+  border-radius: 9999px;
+  background: #123c69;
+}
+
+@media (max-width: 1023px) {
+  .location-swiper .swiper-button-next,
+  .location-swiper .swiper-button-prev {
+    width: 46px;
+    height: 46px;
+  }
+
+  .location-swiper .swiper-button-next::after,
+  .location-swiper .swiper-button-prev::after {
+    font-size: 18px;
+  }
+}
+.location-swiper .swiper-slide:not(.swiper-slide-active) {
+  filter: blur(1.5px);
+}

@@ -3,8 +3,16 @@ import Section from "../components/Section";
 import { project } from "../data/projectContent";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/ELEMENT 7.png";
-import LocationCarousel from "../components/LocationCarousel";
+import LocationCarouselSwiper from "../components/LocationCarouselSwiper";
 import chomsao1 from "../assets/chomsao1.jpg";
+import chomsao2 from "../assets/chomsao2.png";
+import chomsao3 from "../assets/chomsao3.png";
+import chomsao4 from "../assets/chomsao4.png";
+import chomsao5 from "../assets/chomsao5.png";
+import chomsao6 from "../assets/chomsao6.png";
+import chomsao7 from "../assets/chomsao7.png";
+import chomsao8 from "../assets/chomsao8.png";
+import chomsao9 from "../assets/chomsao9.png";
 const pageTitleVariants = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -49,7 +57,7 @@ const locationItems = [
     title: "Mái ấm Thiện Duyên",
     description:
       "Nuôi dưỡng khoảng 50 người khuyết tật từ 15 tuổi trở lên. Nhiều em chịu ảnh hưởng chất độc da cam, bại não hoặc vấn đề thần kinh, cần được chăm sóc toàn thời gian.",
-    image: chomsao1,
+    image: chomsao2,
   },
   {
     id: 3,
@@ -57,7 +65,7 @@ const locationItems = [
     title: "Mái ấm Thiên Phúc",
     description:
       "Chăm sóc khoảng 80 em nhỏ gặp khó khăn như khiếm thính, thiểu năng. Nơi đây hỗ trợ sinh hoạt, học tập và tạo môi trường yêu thương để các em phát triển.",
-    image: chomsao1,
+    image: chomsao3,
   },
   {
     id: 4,
@@ -65,7 +73,7 @@ const locationItems = [
     title: "Trường Khiếm thị Nhật Hồng",
     description:
       "Đồng hành cùng 63 em nhỏ khiếm thị từ mầm non đến cấp 2. Trung tâm giúp các em học văn hóa, rèn kỹ năng tự lập và hòa nhập xã hội.",
-    image: chomsao1,
+    image: chomsao4,
   },
   {
     id: 5,
@@ -73,7 +81,7 @@ const locationItems = [
     title: "Mái ấm Từ Tâm",
     description:
       "Chăm sóc khoảng 80 em nhỏ mồ côi, mang nhiều dạng khuyết tật như vận động, trí tuệ, nghe nói. Các em được học tập và sinh hoạt phù hợp với khả năng riêng, độ tuổi phần lớn từ 18 đến 20 tuổi.",
-    image: chomsao1,
+    image: chomsao5,
   },
   {
     id: 6,
@@ -81,7 +89,7 @@ const locationItems = [
     title: "Trường Hy Vọng Quận 6",
     description:
       "Đồng hành cùng 145 học sinh khuyết tật bậc tiểu học. Trong đó có trẻ khiếm thính, tự kỷ, chậm phát triển trí tuệ và tăng động.",
-    image: chomsao1,
+    image: chomsao6,
   },
   {
     id: 7,
@@ -89,7 +97,7 @@ const locationItems = [
     title: "Trường giáo dục chuyên biệt Hoàng Mai",
     description:
       "Chăm sóc và giáo dục 110 học sinh khuyết tật từ 5–18 tuổi. Các em gặp tình trạng bại não, Down, tự kỷ, chậm ngôn ngữ hoặc chậm nhận thức.",
-    image: chomsao1,
+    image: chomsao7,
   },
   {
     id: 8,
@@ -97,7 +105,7 @@ const locationItems = [
     title: "Trường Khuyết tật Thanh Tâm",
     description:
       "Đồng hành cùng 22 em từ trẻ nhỏ đến thanh thiếu niên, chủ yếu gặp khó khăn về trí tuệ, chậm phát triển và hạn chế nhận thức.",
-    image: chomsao1,
+    image: chomsao8,
   },
   {
     id: 9,
@@ -105,7 +113,7 @@ const locationItems = [
     title: "Mái ấm Thiên Thần",
     description:
       "Chăm sóc 21 em nhỏ độ tuổi thiếu nhi bị bại não, rối loạn phát triển trong đó nhiều em phải nằm tại chỗ hoặc ăn qua ống thông.",
-    image: chomsao1,
+    image: chomsao9,
   },
 ];
 export default function Page2() {
@@ -268,7 +276,17 @@ export default function Page2() {
             ))}
           </div>
         </Section>
-        {/* <LocationCarousel items={locationItems} autoPlayMs={3500} /> */}
+        <section className="bg-brand text-white border-y border-brand/20">
+          <div className="marquee-wrap py-4 sm:py-5">
+            <div className="marquee-track text-[28px] sm:text-[46px] lg:text-[60px] font-black uppercase tracking-[0.08em]">
+              <span className="marquee-text"> CÁC ĐỊA ĐIỂM MỚI</span>
+              <span className="marquee-text"> CÁC ĐỊA ĐIỂM MỚI</span>
+              <span className="marquee-text"> CÁC ĐỊA ĐIỂM MỚI</span>
+              <span className="marquee-text"> CÁC ĐỊA ĐIỂM MỚI</span>
+            </div>
+          </div>
+        </section>
+        <LocationCarouselSwiper items={locationItems} />
         <footer className="bg-brand border-t border-black/10">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">

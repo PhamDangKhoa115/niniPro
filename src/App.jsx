@@ -8,7 +8,7 @@ import DonatePage from "./pages/DonatePage";
 import MapPage from "./pages/MapPage";
 import AboutSiTiGroupPage from "./pages/AboutSiTiGroupPage";
 import AboutUSOPage from "./pages/AboutUSOPage";
-
+import ConstellationInfoPage from "./pages/ConstellationInfoPage";
 import StarTransitionOverlay from "./components/StarTransitionOverlay";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
@@ -56,8 +56,11 @@ export default function App() {
         <Route path="/mainPage" element={<Page1 />} />
         <Route path="/Activities" element={<Page2 />} />
         <Route path="/donate" element={<DonatePage />} />
+        <Route
+          path="/explore/thong-tin-cac-chom-sao"
+          element={<ConstellationInfoPage />}
+        />
 
-        {/* GIỚI THIỆU */}
         <Route
           path="/gioi-thieu/ve-siti-group"
           element={<AboutSiTiGroupPage />}

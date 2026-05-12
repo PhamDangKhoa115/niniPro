@@ -1,38 +1,12 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import Navbar from "../components/Navbar";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
+import Map, { Marker, Popup } from "react-map-gl/maplibre";
+import maplibregl from "maplibre-gl";
+import "maplibre-gl/dist/maplibre-gl.css";
+
 import { locations } from "../data/locations";
 
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: markerIcon2x,
-  iconUrl: markerIcon,
-  shadowUrl: markerShadow,
-});
-
-function FlyToLocation({ location }) {
-  const map = useMap();
-
-  useEffect(() => {
-    if (
-      location &&
-      Number.isFinite(Number(location.lat)) &&
-      Number.isFinite(Number(location.lng))
-    ) {
-      map.flyTo([Number(location.lat), Number(location.lng)], 13, {
-        duration: 1.2,
-      });
-    }
-  }, [location, map]);
-
-  return null;
-}
+const VIETMAP_API_KEY = "c9e840e378273c151a13e597d7c8342a98cec45ca96d4e4f";
 
 export default function MapPage() {
   const validLocations = locations.filter(
@@ -43,37 +17,35 @@ export default function MapPage() {
   const [selected, setSelected] = useState(validLocations[0] || null);
   const [mobilePanelOpen, setMobilePanelOpen] = useState(true);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
-  const createNumberIcon = (number) =>
-    L.divIcon({
-      className: "custom-marker",
-      html: `
-      <div style="
-        background:#1d4ed8;
-        color:white;
-        width:30px;
-        height:30px;
-        border-radius:50%;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        font-weight:bold;
-        font-size:14px;
-        border:2px solid white;
-        box-shadow:0 2px 6px rgba(0,0,0,0.3);
-      ">
-        ${number}
-      </div>
-    `,
-      iconSize: [30, 30],
-      iconAnchor: [15, 30],
-    });
-  const center = useMemo(() => [10.8231, 106.6297], []);
+
+  const mapRef = useRef(null);
+
+  const center = useMemo(
+    () => ({
+      latitude: 10.8231,
+      longitude: 106.6297,
+      zoom: 10,
+    }),
+    [],
+  );
 
   useEffect(() => {
     const onResize = () => setIsMobile(window.innerWidth < 1024);
+
     window.addEventListener("resize", onResize);
+
     return () => window.removeEventListener("resize", onResize);
   }, []);
+
+  useEffect(() => {
+    if (!selected || !mapRef.current) return;
+
+    mapRef.current.getMap().flyTo({
+      center: [Number(selected.lng), Number(selected.lat)],
+      zoom: 13,
+      duration: 1200,
+    });
+  }, [selected]);
 
   return (
     <div className="min-h-screen bg-bgMain text-slate-900 overflow-hidden">
@@ -83,6 +55,7 @@ export default function MapPage() {
         <div className="relative h-[calc(100vh-64px)] lg:h-[calc(100vh-84px)]">
           {!isMobile ? (
             <div className="grid h-full lg:grid-cols-[380px_1fr]">
+              {/* LEFT PANEL */}
               <aside className="border-r border-black/10 bg-white/85 backdrop-blur-md p-4 overflow-y-auto">
                 <div className="rounded-2xl bg-white shadow-sm border border-black/10 p-4">
                   <h1 className="text-2xl font-bold font-['Times_New_Roman'] text-brandText">
@@ -102,15 +75,13 @@ export default function MapPage() {
                       <div className="mt-3 text-sm leading-7 text-brandText-light">
                         <div>
                           <span className="font-bold text-brandText">
-                            Địa chỉ:{" "}
-                          </span>
+                            Địa chỉ:
+                          </span>{" "}
                           {selected.address}
                         </div>
 
                         <div>
-                          <span className="font-bold text-brandText">
-                            SĐT:{" "}
-                          </span>
+                          <span className="font-bold text-brandText">SĐT:</span>{" "}
                           {selected.phone}
                         </div>
                       </div>
@@ -145,6 +116,7 @@ export default function MapPage() {
                       ].join(" ")}
                     >
                       <div className="font-bold text-brandText">{loc.name}</div>
+
                       <div className="mt-1 text-sm text-brandText-light line-clamp-2">
                         {loc.address}
                       </div>
@@ -153,84 +125,162 @@ export default function MapPage() {
                 </div>
               </aside>
 
+              {/* MAP */}
               <section className="relative h-full">
-                <MapContainer
-                  center={center}
-                  zoom={10}
-                  scrollWheelZoom={true}
-                  className="h-full w-full z-0"
+                <Map
+                  ref={mapRef}
+                  mapLib={maplibregl}
+                  initialViewState={center}
+                  style={{ width: "100%", height: "100%" }}
+                  mapStyle={{
+                    version: 8,
+                    sources: {
+                      vietmap: {
+                        type: "raster",
+                        tiles: [
+                          `https://maps.vietmap.vn/api/tm/{z}/{x}/{y}.png?apikey=${VIETMAP_API_KEY}`,
+                        ],
+                        tileSize: 256,
+                      },
+                    },
+                    layers: [
+                      {
+                        id: "vietmap-layer",
+                        type: "raster",
+                        source: "vietmap",
+                      },
+                    ],
+                  }}
                 >
-                  <FlyToLocation location={selected} />
-
-                  <TileLayer
-                    attribution="&copy; OpenStreetMap contributors"
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-
                   {validLocations.map((loc, index) => (
                     <Marker
                       key={loc.id}
-                      position={[Number(loc.lat), Number(loc.lng)]}
-                      icon={
-                        selected?.id === loc.id
-                          ? createNumberIcon(`⭐`)
-                          : createNumberIcon(index + 1)
-                      }
-                      eventHandlers={{
-                        click: () => setSelected(loc),
-                      }}
+                      longitude={Number(loc.lng)}
+                      latitude={Number(loc.lat)}
+                      anchor="bottom"
                     >
-                      <Popup>
-                        <div className="min-w-[220px]">
-                          <div className="font-bold">{loc.name}</div>
-                          <div className="mt-1 text-sm">{loc.address}</div>
-                          <div className="mt-1 text-sm">SĐT: {loc.phone}</div>
-                        </div>
-                      </Popup>
+                      <button
+                        type="button"
+                        onClick={() => setSelected(loc)}
+                        className={[
+                          "flex items-center justify-center",
+                          "w-8 h-8 rounded-full",
+                          "text-white font-bold text-sm",
+                          "border-2 border-white shadow-lg",
+                          selected?.id === loc.id
+                            ? "bg-yellow-500 scale-110"
+                            : "bg-blue-700",
+                        ].join(" ")}
+                      >
+                        {selected?.id === loc.id ? "⭐" : index + 1}
+                      </button>
                     </Marker>
                   ))}
-                </MapContainer>
+
+                  {selected && (
+                    <Popup
+                      longitude={Number(selected.lng)}
+                      latitude={Number(selected.lat)}
+                      anchor="top"
+                      closeButton={true}
+                      closeOnClick={false}
+                      onClose={() => setSelected(null)}
+                    >
+                      <div className="min-w-[220px]">
+                        <div className="font-bold">{selected.name}</div>
+
+                        <div className="mt-1 text-sm">{selected.address}</div>
+
+                        <div className="mt-1 text-sm">
+                          SĐT: {selected.phone}
+                        </div>
+                      </div>
+                    </Popup>
+                  )}
+                </Map>
               </section>
             </div>
           ) : (
             <div className="relative h-full">
+              {/* MOBILE MAP */}
               <section className="absolute inset-0 z-0">
-                <MapContainer
-                  center={center}
-                  zoom={10}
-                  scrollWheelZoom={true}
-                  className="h-full w-full"
+                <Map
+                  ref={mapRef}
+                  mapLib={maplibregl}
+                  initialViewState={center}
+                  style={{ width: "100%", height: "100%" }}
+                  mapStyle={{
+                    version: 8,
+                    sources: {
+                      vietmap: {
+                        type: "raster",
+                        tiles: [
+                          `https://maps.vietmap.vn/api/tm/{z}/{x}/{y}.png?apikey=${VIETMAP_API_KEY}`,
+                        ],
+                        tileSize: 256,
+                      },
+                    },
+                    layers: [
+                      {
+                        id: "vietmap-layer",
+                        type: "raster",
+                        source: "vietmap",
+                      },
+                    ],
+                  }}
                 >
-                  <FlyToLocation location={selected} />
-
-                  <TileLayer
-                    attribution="&copy; OpenStreetMap contributors"
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                  />
-
-                  {validLocations.map((loc) => (
+                  {validLocations.map((loc, index) => (
                     <Marker
                       key={loc.id}
-                      position={[Number(loc.lat), Number(loc.lng)]}
-                      eventHandlers={{
-                        click: () => {
+                      longitude={Number(loc.lng)}
+                      latitude={Number(loc.lat)}
+                      anchor="bottom"
+                    >
+                      <button
+                        type="button"
+                        onClick={() => {
                           setSelected(loc);
                           setMobilePanelOpen(true);
-                        },
-                      }}
-                    >
-                      <Popup>
-                        <div className="min-w-[220px]">
-                          <div className="font-bold">{loc.name}</div>
-                          <div className="mt-1 text-sm">{loc.address}</div>
-                          <div className="mt-1 text-sm">SĐT: {loc.phone}</div>
-                        </div>
-                      </Popup>
+                        }}
+                        className={[
+                          "flex items-center justify-center",
+                          "w-8 h-8 rounded-full",
+                          "text-white font-bold text-sm",
+                          "border-2 border-white shadow-lg",
+                          selected?.id === loc.id
+                            ? "bg-yellow-500 scale-110"
+                            : "bg-blue-700",
+                        ].join(" ")}
+                      >
+                        {selected?.id === loc.id ? "⭐" : index + 1}
+                      </button>
                     </Marker>
                   ))}
-                </MapContainer>
+
+                  {selected && (
+                    <Popup
+                      longitude={Number(selected.lng)}
+                      latitude={Number(selected.lat)}
+                      anchor="top"
+                      closeButton={true}
+                      closeOnClick={false}
+                      onClose={() => setSelected(null)}
+                    >
+                      <div className="min-w-[220px]">
+                        <div className="font-bold">{selected.name}</div>
+
+                        <div className="mt-1 text-sm">{selected.address}</div>
+
+                        <div className="mt-1 text-sm">
+                          SĐT: {selected.phone}
+                        </div>
+                      </div>
+                    </Popup>
+                  )}
+                </Map>
               </section>
 
+              {/* MOBILE BUTTON */}
               <button
                 type="button"
                 onClick={() => setMobilePanelOpen((v) => !v)}
@@ -239,9 +289,13 @@ export default function MapPage() {
                 {mobilePanelOpen ? "Thu gọn" : "Mở danh sách"}
               </button>
 
+              {/* MOBILE PANEL */}
               <div
                 className={[
-                  "absolute left-3 right-3 bottom-3 z-[1000] rounded-3xl border border-black/10 bg-white/95 backdrop-blur-md shadow-2xl transition-all duration-300",
+                  "absolute left-3 right-3 bottom-3 z-[1000]",
+                  "rounded-3xl border border-black/10",
+                  "bg-white/95 backdrop-blur-md shadow-2xl",
+                  "transition-all duration-300",
                   mobilePanelOpen
                     ? "max-h-[58vh] p-4"
                     : "max-h-[72px] p-3 overflow-hidden",
@@ -270,12 +324,13 @@ export default function MapPage() {
                     <div className="mt-3 text-sm leading-7 text-brandText-light">
                       <div>
                         <span className="font-bold text-brandText">
-                          Địa chỉ:{" "}
-                        </span>
+                          Địa chỉ:
+                        </span>{" "}
                         {selected.address}
                       </div>
+
                       <div>
-                        <span className="font-bold text-brandText">SĐT: </span>
+                        <span className="font-bold text-brandText">SĐT:</span>{" "}
                         {selected.phone}
                       </div>
                     </div>
@@ -315,6 +370,7 @@ export default function MapPage() {
                         <div className="font-bold text-brandText">
                           {loc.name}
                         </div>
+
                         <div className="mt-1 text-sm text-brandText-light line-clamp-2">
                           {loc.address}
                         </div>

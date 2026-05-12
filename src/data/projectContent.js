@@ -55,9 +55,14 @@ export const project = {
           image: "/attribute/TTKV.jpg",
         },
         {
-          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
-          desc: "VNV - Cộng Đồng Tình Nguyện Việt Nam ",
-          image: "/attribute/VNV.jpg",
+          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
+          desc: "ISpace English Center",
+          image: "/attribute/ISpace.jpg",
+        },
+        {
+          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
+          desc: "Yoja Matcha",
+          image: "/attribute/Yoja.jpg",
         },
       ],
     },

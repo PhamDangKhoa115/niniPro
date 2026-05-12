@@ -3,10 +3,9 @@ import Navbar from "../components/Navbar";
 import Map, { Marker, Popup } from "react-map-gl/maplibre";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-
 import { locations } from "../data/locations";
 
-const VIETMAP_API_KEY = "c9e840e378273c151a13e597d7c8342a98cec45ca96d4e4f";
+const VIETMAP_API_KEY = import.meta.env.VITE_VIETMAP_API_KEY;
 
 export default function MapPage() {
   const validLocations = locations.filter(

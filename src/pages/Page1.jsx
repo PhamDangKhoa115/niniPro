@@ -357,7 +357,13 @@ export default function Page1() {
                 className="flex flex-col items-center text-center gap-4 max-w-[500px]"
               >
                 {/* Logo */}
-                <div className="h-48 w-48 rounded-2xl bg-white flex items-center justify-center hover:scale-105 shadow-md">
+                <div
+                  className={`
+    h-48 w-48 rounded-2xl flex items-center justify-center
+    hover:scale-105 transition-transform duration-300
+    ${c.desc === "Yoja Matcha" ? "" : "bg-white shadow-md"}
+  `}
+                >
                   <img
                     src={c.image}
                     alt="image"
@@ -376,24 +382,7 @@ export default function Page1() {
             ))}
           </div>
         </Section>
-        {/* <div className="h-9 bg-brand" />
-        <Section title={p.memories.title}>
-          <div className="grid grid-cols-3 gap-2 sm:grid-cols-6 sm:gap-3">
-            {p.memories.photos.map((src, i) => (
-              <motion.div
-                key={i}
-                variants={cardVariants}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, amount: 0.2 }}
-                custom={i}
-                className="overflow-hidden rounded-xl border border-pink-200 bg-white"
-              >
-                <div className="h-44 sm:h-52 bg-pink-50"></div>
-              </motion.div>
-            ))}
-          </div>
-        </Section> */}
+
         <footer className="bg-brand border-t border-black/10">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">

@@ -46,7 +46,8 @@ export default function DonatePage() {
               {/* Right: Text */}
               <div className="text-center md:text-center">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-['Times_New_Roman'] font-bold text-brandText leading-snug">
-                  Gửi tài trợ đến với tài khoản gây quỹ của SiTi
+                  Quỹ quyên góp của Hành Trình Hy Vọng 2026 tại Thành Phố Hồ Chí
+                  Minh
                 </h2>
 
                 <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em]  font-semibold">

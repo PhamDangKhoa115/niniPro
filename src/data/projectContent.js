@@ -25,6 +25,11 @@ export const project = {
           image: "/attribute/nhasach.jpg",
         },
         {
+          title: "NHÀ TÀI TRỢ BẠC",
+          desc: "PHOTO WON ",
+          image: "/attribute/Photo.jpg",
+        },
+        {
           title: "NHÀ TÀI TRỢ VÀNG",
           desc: "Umi Flowers ",
           image: "/attribute/flower.png",

@@ -20,17 +20,17 @@ export const project = {
           image: "/attribute/USO.jpg",
         },
         {
-          title: "NHÀ TÀI TRỢ",
+          title: "NHÀ TÀI TRỢ BẠC",
           desc: "Nhà sách Văn Minh ",
           image: "/attribute/nhasach.jpg",
         },
         {
-          title: "NHÀ TÀI TRỢ",
+          title: "NHÀ TÀI TRỢ VÀNG",
           desc: "Umi Flowers ",
           image: "/attribute/flower.png",
         },
         {
-          title: "NHÀ TÀI TRỢ",
+          title: "NHÀ TÀI TRỢ VÀNG",
           desc: "T-Bingsu ",
           image: "/attribute/bingsu.png",
         },

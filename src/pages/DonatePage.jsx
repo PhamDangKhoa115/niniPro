@@ -38,7 +38,7 @@ export default function DonatePage() {
             {/* Description */}
             <div className="max-w-[900px] mx-auto text-center">
               <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
-                Tài trợ là một trong những cách đóng góp thiết thực trong hành
+                Quyên góp là một trong những cách đóng góp thiết thực trong hành
                 trình triển khai dự án Hành Trình Hy Vọng 2026. Toàn bộ nguồn
                 kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích
                 nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ

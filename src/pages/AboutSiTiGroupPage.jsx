@@ -39,21 +39,19 @@ export default function AboutSiTiGroupPage() {
                   CỘNG ĐỒNG SINH VIÊN TÌNH NGUYỆN SITIGROUP
                 </h2>
               </a>
-
-              <p className="mt-6 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
-                Ban Tổ Chức Dự án “Hành Trình Hy Vọng 2026 - Thấu Sao Dệt Sáng”
-                thuộc Câu lạc bộ Cộng đồng Sinh viên Tình nguyện SiTiGroup
-                Trường Đại học FPT HCM là những sinh viên đến từ các chuyên
-                ngành khác nhau, cùng gắn kết bởi sứ mệnh chung “Keep Loving By
-                Sharing”, với mục đích lan tỏa yêu thương, mang tri thức và hy
-                vọng đến với những mảnh đời kém may mắn.
-              </p>
-
               <p className="mt-5 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
                 Cộng đồng Sinh viên Tình nguyện SiTiGroup được thành lập vào
                 ngày 15/07/2009. Bằng sự nhiệt huyết và tận tâm, tất cả các
                 thành viên đã đồng hành cùng nhau hơn 16 năm để thực hiện những
                 chương trình cộng đồng đầy ý nghĩa.
+              </p>
+              <p className="mt-6 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
+                Ban Tổ Chức Dự án “Hành Trình Hy Vọng 2026 - Thấu Sao Dệt Sáng”
+                thuộc Câu lạc bộ Cộng đồng Sinh viên Tình nguyện SiTiGroup đến
+                từ Trường Đại học FPT HCM là những sinh viên đến từ các chuyên
+                ngành khác nhau, cùng gắn kết bởi sứ mệnh chung “Keep Loving By
+                Sharing”, với mục đích lan tỏa yêu thương, mang tri thức và hy
+                vọng đến với những mảnh đời kém may mắn.
               </p>
             </div>
           </div>
@@ -88,7 +86,7 @@ export default function AboutSiTiGroupPage() {
                       href="tel:+84915883688"
                       className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
-                      (+84) 91 588 36 88
+                      (+84) 91 588 36 88- (Nguyễn Ngọc Kim Mai)
                     </a>
                   </p>
                 </div>

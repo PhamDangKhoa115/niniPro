@@ -40,20 +40,19 @@ export default function AboutUSOPage() {
                 </h2>
               </a>
 
-              <p className="mt-6 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
-                Câu lạc bộ Thiện nguyện US Organization (USO) – Đại học FPT Quy
-                Nhơn là nơi hội tụ những sinh viên giàu nhiệt huyết, cùng chung
-                sứ mệnh “Gieo mầm tử tế - Gặt hái yêu thương”. Với mong muốn lan
-                tỏa yêu thương, CLB không ngừng mang đến niềm vui và hy vọng cho
-                những hoàn cảnh khó khăn trên địa bàn tỉnh Bình Định.
-              </p>
-
               <p className="mt-5 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
                 Chính thức thành lập vào ngày 20/11/2022, USO được xây dựng từ
                 tinh thần tương thân tương ái của những trái tim trẻ. Bằng sự
                 chân thành và trách nhiệm, các thành viên luôn đồng hành cùng
                 nhau phát triển một cộng đồng tình nguyện vững mạnh, triển khai
                 những hoạt động thiết thực, giàu giá trị nhân văn.
+              </p>
+              <p className="mt-6 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">
+                Câu lạc bộ Thiện nguyện US Organization (USO) – Đại học FPT Quy
+                Nhơn là nơi hội tụ những sinh viên giàu nhiệt huyết, cùng chung
+                sứ mệnh “Gieo mầm tử tế - Gặt hái yêu thương”. Với mong muốn lan
+                tỏa yêu thương, CLB không ngừng mang đến niềm vui và hy vọng cho
+                những hoàn cảnh khó khăn trên địa bàn tỉnh Bình Định.
               </p>
             </div>
           </div>
@@ -88,7 +87,7 @@ export default function AboutUSOPage() {
                       href="tel:+84915883688"
                       className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
-                      (+84) 91 588 36 88
+                      (+84) 91 588 36 88-(Nguyễn Ngọc Kim Mai)
                     </a>
                   </p>
                 </div>

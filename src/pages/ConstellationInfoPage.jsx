@@ -161,7 +161,7 @@ export default function ConstellationInfoPage() {
                       href="tel:+84915883688"
                       className="text-white no-underline font-['Times_New_Roman'] hover:opacity-80 transition"
                     >
-                      (+84) 91 588 36 88
+                      (+84) 91 588 36 88 - (Nguyễn Ngọc Kim Mai)
                     </a>
                   </p>
                 </div>

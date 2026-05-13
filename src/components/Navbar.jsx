@@ -33,7 +33,7 @@ export default function Navbar() {
   const items = [
     { to: "/mainPage", label: "TRANG CHỦ" },
     { to: "/Activities", label: "CÁC HOẠT ĐỘNG" },
-    { to: "/donate", label: "DONATE" },
+    { to: "/donate", label: " ỦNG HỘ" },
   ];
 
   const navBaseClass = ({ isActive }) =>
@@ -199,7 +199,7 @@ export default function Navbar() {
                             }}
                             className={desktopDropdownLinkClass}
                           >
-                            VỀ SITI GROUP
+                            VỀ SITIGROUP
                           </NavLink>
 
                           <NavLink

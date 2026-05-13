@@ -77,7 +77,8 @@ export default function DonatePage() {
                     <div>Số tài khoản: 0852866667</div>
                     <div>Tên tài khoản: HUYNH NHA UYEN</div>
                     <div>
-                      Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ SITIGROUP]{" "}
+                      Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ HÀNH TRÌNH HY
+                      VỌNG]{" "}
                     </div>
                   </div>
                 </div>

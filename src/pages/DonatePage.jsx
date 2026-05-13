@@ -3,6 +3,7 @@ import { project } from "../data/projectContent";
 import Navbar from "../components/Navbar";
 import Logo from "../assets/ELEMENT 7.png";
 import qrImg from "../assets/qrImg.jpg";
+import qrImgQN from "../assets/qrImgQN.jpg";
 export default function DonatePage() {
   function HeaderBar() {
     return (
@@ -31,43 +32,45 @@ export default function DonatePage() {
         <div className="h-12 sm:h-16 bg-brand" />
 
         {/* Content */}
+        {/* Content */}
         <section className="bg-bgMain">
-          <div className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10 sm:py-14">
-            <div className="grid gap-10 md:grid-cols-[420px_1fr] items-stretch">
-              {/* Left: QR */}
-              <div className="w-full rounded-xl overflow-hidden group">
-                <img
-                  src={qrImg}
-                  alt="QR Donate"
-                  className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
-                />
-              </div>
+          <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-10 sm:py-14">
+            {/* Description */}
+            <div className="max-w-[900px] mx-auto text-center">
+              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
+                Tài trợ là một trong những cách đóng góp thiết thực trong hành
+                trình triển khai dự án Hành Trình Hy Vọng 2026. Toàn bộ nguồn
+                kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích
+                nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ
+                trợ trẻ em khuyết tật tại các cơ sở bảo trợ ở TP. Hồ Chí Minh và
+                Quy Nhơn.
+              </p>
 
-              {/* Right: Text */}
-              <div className="text-center md:text-center">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-['Times_New_Roman'] font-bold text-brandText leading-snug">
+              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
+                Bên cạnh đó, sự đồng hành và ủng hộ từ cộng đồng chính là nguồn
+                động lực để tiếp tục lan tỏa tinh thần sẻ chia, phát huy sức trẻ
+                và trách nhiệm xã hội, góp phần mang đến những giá trị tích cực
+                và bền vững cho cộng đồng.
+              </p>
+            </div>
+
+            {/* QR Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10 mt-14">
+              {/* MB BANK */}
+              <div className="flex flex-col items-center">
+                <div className="w-full max-w-[420px] rounded-xl overflow-hidden group shadow-lg">
+                  <img
+                    src={qrImg}
+                    alt="QR Donate MB Bank"
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <h2 className="mt-5 text-2xl sm:text-3xl font-['Times_New_Roman'] font-bold text-brandText text-center">
                   Quỹ quyên góp của Hành Trình Hy Vọng 2026 tại Thành Phố Hồ Chí
                   Minh
                 </h2>
-
-                <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em]  font-semibold">
-                  Tài trợ là một trong những cách đóng góp thiết thực cho
-                  SiTiGroup trong hành trình triển khai dự án Hành Trình Hy Vọng
-                  2026. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh
-                  bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và
-                  tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở
-                  bảo trợ ở TP. Hồ Chí Minh.
-                </p>
-
-                <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em]  font-semibold">
-                  Bên cạnh đó, sự đồng hành và ủng hộ từ cộng đồng chính là
-                  nguồn động lực để SiTiGroup tiếp tục lan tỏa tinh thần sẻ
-                  chia, phát huy sức trẻ và trách nhiệm xã hội, góp phần mang
-                  đến những giá trị tích cực và bền vững cho cộng đồng.
-                </p>
-
-                {/* Fund info */}
-                <div className="mt-10 text-brandText font-['Times_New_Roman']">
+                {/* Fund Info */}
+                <div className="mt-8 text-center text-brandText font-['Times_New_Roman']">
                   <div className="text-lg sm:text-xl font-bold">
                     📌 THÔNG TIN GÂY QUỸ
                   </div>
@@ -78,7 +81,37 @@ export default function DonatePage() {
                     <div>Tên tài khoản: HUYNH NHA UYEN</div>
                     <div>
                       Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ HÀNH TRÌNH HY
-                      VỌNG]{" "}
+                      VỌNG]
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* VIB BANK */}
+              <div className="flex flex-col items-center">
+                <div className="w-full max-w-[420px] rounded-xl overflow-hidden group shadow-lg">
+                  <img
+                    src={qrImgQN}
+                    alt="QR Donate VIB Bank"
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <h2 className="mt-5 text-2xl sm:text-3xl font-['Times_New_Roman'] font-bold text-brandText text-center">
+                  Quỹ quyên góp của Hành Trình Hy Vọng 2026 tại Quy Nhơn
+                </h2>
+                {/* Fund Info */}
+                <div className="mt-8 text-center text-brandText font-['Times_New_Roman']">
+                  <div className="text-lg sm:text-xl font-bold">
+                    📌 THÔNG TIN GÂY QUỸ
+                  </div>
+
+                  <div className="mt-4 space-y-2 text-[15px] sm:text-base font-semibold">
+                    <div>Ngân hàng: Ngân hàng Quốc Tế (VIB Bank)</div>
+                    <div>Số tài khoản: 777552379</div>
+                    <div>Tên tài khoản: PHAM DOAN TRANG</div>
+                    <div>
+                      Nội dung chuyển khoản: [HỌ TÊN + ỦNG HỘ HÀNH TRÌNH HY
+                      VỌNG]
                     </div>
                   </div>
                 </div>

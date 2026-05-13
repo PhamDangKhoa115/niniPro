@@ -15,6 +15,16 @@ export const project = {
       title: "ĐỐI TÁC",
       cards: [
         {
+          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
+          desc: "ISpace English Center",
+          image: "/attribute/ISpace.jpg",
+        },
+        {
+          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
+          desc: "Yoja Matcha",
+          image: "/attribute/Yoja.jpg",
+        },
+        {
           title: "ĐƠN VỊ PHỐI HỢP THỰC HIỆN ",
           desc: "US Organization ",
           image: "/attribute/USO.jpg",
@@ -58,16 +68,6 @@ export const project = {
           title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
           desc: "THỂ THAO KHOA VĂN ",
           image: "/attribute/TTKV.jpg",
-        },
-        {
-          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
-          desc: "ISpace English Center",
-          image: "/attribute/ISpace.jpg",
-        },
-        {
-          title: "NHÀ TÀI TRỢ KIM CƯƠNG",
-          desc: "Yoja Matcha",
-          image: "/attribute/Yoja.jpg",
         },
       ],
     },

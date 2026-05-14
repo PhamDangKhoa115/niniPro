@@ -19,7 +19,7 @@ export default function AboutSiTiGroupPage() {
             VỀ SITIGROUP
           </h1>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.1fr] items-center">
+          <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1.1fr] items-center">
             <div className="overflow-hidden rounded-3xl border border-blue-100 bg-white shadow-sm">
               <img
                 src={sitiImage}
@@ -35,8 +35,8 @@ export default function AboutSiTiGroupPage() {
                 rel="noreferrer"
                 className="no-underline"
               >
-                <h2 className="text-[24px] sm:text-[30px] leading-tight font-extrabold uppercase font-['Times_New_Roman'] text-brandText hover:text-brand transition">
-                  CỘNG ĐỒNG SINH VIÊN TÌNH NGUYỆN SITIGROUP
+                <h2 className="text-[24px] text-center sm:text-[30px] leading-tight font-extrabold uppercase font-['Times_New_Roman'] text-brandText hover:text-brand transition whitespace-pre-line">
+                  CỘNG ĐỒNG SINH VIÊN {"\n"} TÌNH NGUYỆN SITIGROUP
                 </h2>
               </a>
               <p className="mt-5 text-[15px] sm:text-[17px] leading-8 font-semibold font-['Times_New_Roman'] tracking-[0.02em] text-brandText-light text-justify">

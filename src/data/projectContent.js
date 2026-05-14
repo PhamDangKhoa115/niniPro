@@ -77,7 +77,7 @@ export const project = {
       items: [
         {
           title: "Tài trợ",
-          desc: "Tài trợ là một trong những cách đóng góp thiết thực cho SiTiGroup. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở bảo trợ ở TP. Hồ Chí Minh.",
+          desc: "Tài trợ là một trong những cách đóng góp thiết thực cho SiTiGroup. Toàn bộ nguồn kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích nhằm chuẩn bị nhu yếu phẩm, quà tặng và tổ chức các hoạt động hỗ trợ trẻ em khuyết tật tại các cơ sở bảo trợ \n ở TP. Hồ Chí Minh.",
           image: "/attribute/taitro.jpg",
         },
         {

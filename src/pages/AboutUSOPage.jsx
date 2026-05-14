@@ -35,8 +35,8 @@ export default function AboutUSOPage() {
                 rel="noreferrer"
                 className="no-underline"
               >
-                <h2 className="text-[24px] sm:text-[30px] leading-tight font-extrabold uppercase font-['Times_New_Roman'] text-brandText hover:text-brand transition">
-                  CÂU LẠC BỘ THIỆN NGUYỆN US ORGANIZATION
+                <h2 className="text-[24px] text-center sm:text-[30px] leading-tight font-extrabold uppercase font-['Times_New_Roman'] text-brandText hover:text-brand transition whitespace-pre-line">
+                  CÂU LẠC BỘ THIỆN NGUYỆN {"\n"} US ORGANIZATION
                 </h2>
               </a>
 

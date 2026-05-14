@@ -37,7 +37,7 @@ export default function DonatePage() {
           <div className="mx-auto max-w-[1200px] px-4 sm:px-6 py-10 sm:py-14">
             {/* Description */}
             <div className="max-w-[900px] mx-auto text-center">
-              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
+              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
                 Quyên góp là một trong những cách đóng góp thiết thực trong hành
                 trình triển khai dự án Hành Trình Hy Vọng 2026. Toàn bộ nguồn
                 kinh phí quyên góp sẽ được sử dụng minh bạch và đúng mục đích
@@ -46,7 +46,7 @@ export default function DonatePage() {
                 Quy Nhơn.
               </p>
 
-              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText-light font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
+              <p className="mt-6 text-[15px] sm:text-base leading-relaxed text-brandText font-['Times_New_Roman'] tracking-[0.04em] font-semibold">
                 Bên cạnh đó, sự đồng hành và ủng hộ từ cộng đồng chính là nguồn
                 động lực để tiếp tục lan tỏa tinh thần sẻ chia, phát huy sức trẻ
                 và trách nhiệm xã hội, góp phần mang đến những giá trị tích cực

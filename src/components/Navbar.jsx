@@ -388,7 +388,7 @@ export default function Navbar() {
                                   : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
                               ].join(" ")}
                             >
-                              VỀ SITI GROUP
+                              VỀ SITIGROUP
                             </NavLink>
 
                             <NavLink

@@ -72,4 +72,39 @@ export const locations = [
     lat: 10.7465,
     lng: 106.6274,
   },
+
+  // ===== ĐỊA ĐIỂM MỚI =====
+
+  {
+    id: 10,
+    name: "Trung Tâm Bảo Trợ Xã Hội Đồng Tâm",
+    address: "QL 1A, Âu Cơ, Quy Nhơn Tây, Gia Lai",
+    phone: "Đang cập nhật",
+    lat: 13.782,
+    lng: 109.219,
+  },
+  {
+    id: 11,
+    name: "Vườn Tái Chế - NNC",
+    address: "Xóm 2, Khu phố Long Thành, Quy Nhơn Tây, Gia Lai",
+    phone: "Đang cập nhật",
+    lat: 13.776,
+    lng: 109.223,
+  },
+  {
+    id: 12,
+    name: "Trường Chuyên Biệt Hy Vọng",
+    address: "02 Tăng Bạt Hổ, Quy Nhơn, Gia Lai",
+    phone: "Đang cập nhật",
+    lat: 13.7755,
+    lng: 109.2227,
+  },
+  {
+    id: 13,
+    name: "Làng Trẻ Em SOS Quy Nhơn",
+    address: "Q5XQ+5P2, Tổ 3, KV2, Quy Nhơn Đông, Gia Lai",
+    phone: "Đang cập nhật",
+    lat: 13.7826,
+    lng: 109.2194,
+  },
 ];

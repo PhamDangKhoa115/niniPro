@@ -48,7 +48,7 @@ export default function LocationCarouselSwiper({ items = [] }) {
             >
               <article className="overflow-hidden rounded-[32px] lg:rounded-[40px] bg-white shadow-[0_20px_55px_rgba(0,0,0,0.12)]">
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.92fr]">
-                  <div className="h-[280px] sm:h-[360px] lg:h-[480px]">
+                  <div className="h-full min-h-[280px] sm:min-h-[360px] lg:min-h-[480px]">
                     <img
                       src={item.image}
                       alt={item.title}

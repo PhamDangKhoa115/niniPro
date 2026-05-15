@@ -11,6 +11,10 @@ import chomsao6 from "../assets/chomsao6.png";
 import chomsao7 from "../assets/chomsao7.png";
 import chomsao8 from "../assets/chomsao8.png";
 import chomsao9 from "../assets/chomsao9.png";
+import Dongtam from "../assets/Dongtam.jpg";
+import HyVong from "../assets/Hyvong.jpg";
+import NNC from "../assets/NNC.jpg";
+import SOS from "../assets/QN.jpg";
 const pageTitleVariants = {
   hidden: { opacity: 0, y: 40 },
   show: {
@@ -36,6 +40,40 @@ const fadeUpVariants = {
     },
   },
 };
+const locationItemsQN = [
+  {
+    id: 1,
+    star: "[CHÒM SAO 1]",
+    title: "Trung Tâm Bảo Trợ Xã Hội Đồng Tâm ",
+    description:
+      "Nuôi dưỡng và chăm sóc dài hạn cho trẻ em mồ côi, người cao tuổi neo đơn và người khuyết tật không nơi nương tựa. Trung tâm hỗ trợ phục hồi chức năng, giáo dục văn hóa và hướng nghiệp cho người khiếm thính thông qua lớp may công nghiệp.",
+    image: Dongtam,
+  },
+  {
+    id: 2,
+    star: "[CHÒM SAO 2]",
+    title: "Vườn Tái Chế – NNC",
+    description:
+      "Tổ chức các hoạt động tái chế rác thải như nhựa, giấy và vải thành các sản phẩm thủ công thân thiện với môi trường. Nơi đây đồng thời tạo cơ hội học nghề, sản xuất đồ handmade và giáo dục ý thức bảo vệ môi trường cho học sinh và người khuyết tật.",
+    image: NNC,
+  },
+  {
+    id: 3,
+    star: "[CHÒM SAO 3]",
+    title: "Trường Chuyên Biệt Hy Vọng",
+    description:
+      "Đồng hành cùng trẻ em khuyết tật với nhiều dạng khác nhau như khiếm thính, khiếm thị, chậm phát triển trí tuệ, rối loạn phổ tự kỷ và khuyết tật vận động. Trường hỗ trợ giáo dục văn hóa, phục hồi chức năng và phát triển kỹ năng hòa nhập cộng đồng cho các em.",
+    image: HyVong,
+  },
+  {
+    id: 4,
+    star: "[CHÒM SAO 4]",
+    title: "Làng Trẻ Em SOS Quy Nhơn",
+    description:
+      "Chăm sóc và nuôi dưỡng trẻ em mồ côi, trẻ bị bỏ rơi hoặc có hoàn cảnh gia đình đặc biệt khó khăn. Làng tạo môi trường sống ổn định, hỗ trợ học tập, phát triển năng khiếu và định hướng kỹ năng sống cho thanh thiếu niên nhằm giúp các em tự tin hòa nhập xã hội.",
+    image: SOS,
+  },
+];
 const locationItems = [
   {
     id: 1,
@@ -123,15 +161,28 @@ export default function ConstellationInfoPage() {
           animate="show"
           className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10"
         >
-          <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText">
-            THÔNG TIN CÁC CHÒM SAO
+          <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText whitespace-pre-line">
+            THÔNG TIN CÁC CHÒM SAO TẠI {"\n"} TP. HỒ CHÍ MINH
           </h1>
         </motion.div>
 
         <motion.div variants={fadeUpVariants} initial="hidden" animate="show">
           <LocationCarouselSwiper items={locationItems} />
         </motion.div>
-
+        <div className="h-9 bg-brand" />
+        <motion.div
+          variants={pageTitleVariants}
+          initial="hidden"
+          animate="show"
+          className="mx-auto max-w-[1100px] px-4 sm:px-6 py-10"
+        >
+          <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText whitespace-pre-line">
+            THÔNG TIN CÁC CHÒM SAO TẠI {"\n"} QUY NHƠN
+          </h1>
+        </motion.div>
+        <motion.div variants={fadeUpVariants} initial="hidden" animate="show">
+          <LocationCarouselSwiper items={locationItemsQN} />
+        </motion.div>
         <footer className="bg-brand border-t border-black/10">
           <div className="mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 py-10 sm:py-6">
             <div className="grid grid-cols-1 gap-10 md:grid-cols-[260px_1fr_1.1fr_260px] items-start">

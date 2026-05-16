@@ -347,22 +347,25 @@ export default function Page1() {
         <Section title={p.achievements.title}>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-20 place-items-center">
             {p.achievements.cards.map((c, i) => (
-              <motion.div
+              <motion.a
                 key={i}
+                href={c.facebook}
+                target="_blank"
+                rel="noreferrer"
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.2 }}
                 custom={i}
-                className="flex flex-col items-center text-center gap-4 max-w-[500px]"
+                className="flex flex-col items-center text-center gap-4 max-w-[500px] cursor-pointer no-underline hover:scale-105 transition-transform duration-300"
               >
                 {/* Logo */}
                 <div
                   className={`
-    h-48 w-48 rounded-2xl flex items-center justify-center
-    hover:scale-105 transition-transform duration-300
-    ${c.desc === "Yoja Matcha" ? "" : "bg-white shadow-md"}
-  `}
+            h-48 w-48 rounded-2xl flex items-center justify-center
+            hover:scale-105 transition-transform duration-300
+            ${c.desc === "Yoja Matcha" ? "" : "bg-white shadow-md"}
+          `}
                 >
                   <img
                     src={c.image}
@@ -370,15 +373,17 @@ export default function Page1() {
                     className="w-full h-full object-contain p-4"
                   />
                 </div>
+
                 {/* Title */}
                 <div className="w-full text-center text-[20px] md:text-[23px] font-extrabold font-['Times_New_Roman'] text-brandText leading-tight min-h-[20px]">
                   {c.title}
                 </div>
+
                 {/* Subtitle */}
-                <div className="text-center sm:text-left w-full text-[14px] sm:text-[17px] font-extrabold font-['Times_New_Roman']  tracking-[0.04em] text-brandText-light">
+                <div className="text-center sm:text-left w-full text-[14px] sm:text-[17px] font-extrabold font-['Times_New_Roman'] tracking-[0.04em] text-brandText-light">
                   {c.desc}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         </Section>

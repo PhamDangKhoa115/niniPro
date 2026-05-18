@@ -49,7 +49,7 @@ export const project = {
           title: "NHÀ TÀI TRỢ VÀNG",
           desc: "Umi Flowers ",
           image: "/attribute/flower.png",
-          facebook: "https://www.facebook.com/umiflowers",
+          facebook: "https://www.facebook.com/TBingsu",
         },
         {
           title: "NHÀ TÀI TRỢ VÀNG",

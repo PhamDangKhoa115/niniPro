@@ -149,22 +149,22 @@ export const project = {
       blocks: [
         {
           title: "TRẠM TRIỂN LÃM THẤU ÁNH SAO",
-          image: "/Vision.png",
+          image: "/event2/TLAS.JPG",
           desc: "Người tham gia sẽ khám phá và thấu hiểu câu chuyện của các em thông qua triển lãm kết hợp hoạt động tương tác tìm kiếm thông tin.",
         },
         {
           title: "TRẠM TRẢI NGHIỆM CHẠM ÁNH SAO",
-          image: "/Vision.png",
+          image: "/event2/TNCAS.JPG",
           desc: "Các trạm trải nghiệm mang đến hoạt động mô phỏng sinh hoạt của người khuyết tật, qua đó giúp người tham gia thấu hiểu sâu sắc và nuôi dưỡng sự đồng cảm.",
         },
         {
           title: "TRẠM NHẮN GỬI TỎA ÁNH SÁNG",
-          image: "/Vision.png",
+          image: "/event2/NGTAS.JPG",
           desc: "Không gian gửi gắm lời chúc và thông điệp yêu thương đến các em, được tổng hợp và trao lại như món quà tinh thần ý nghĩa.",
         },
         {
           title: "HOẠT ĐỘNG GÂY QUỸ",
-          image: "/Vision.png",
+          image: "/event2/HDGQ.jpg",
           desc: "Gian hàng gây quỹ” bán các sản phẩm được thiết kế riêng theo chủ đề của dự án. Toàn bộ lợi nhuận thu được từ hoạt động sẽ được đóng góp vào các hoạt động thiện nguyện, các nhu yếu phẩm và hiện kim trao tặng cho các địa điểm trong khuôn khổ dự án.",
         },
       ],

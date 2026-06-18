@@ -81,6 +81,12 @@ export const project = {
           image: "/attribute/TTKV.jpg",
           facebook: "https://www.facebook.com/thethaokhoavan",
         },
+        {
+          title: "ĐƠN VỊ BẢO TRỢ TRUYỀN THÔNG",
+          desc: "F# Live Music Club",
+          image: "/attribute/live.jpg",
+          facebook: "https://www.facebook.com/FsharpLiveMusicClub",
+        },
       ],
     },
 

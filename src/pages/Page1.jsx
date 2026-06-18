@@ -364,7 +364,7 @@ export default function Page1() {
                   className={`
             h-48 w-48 rounded-2xl flex items-center justify-center
             hover:scale-105 transition-transform duration-300
-            ${c.desc === "Yoja Matcha" ? "" : "bg-white shadow-md"}
+            ${c.desc === "Yoja Matcha" || c.desc === "F# Live Music Club" ? "" : "bg-white shadow-md"}
           `}
                 >
                   <img

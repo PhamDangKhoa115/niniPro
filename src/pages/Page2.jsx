@@ -178,7 +178,7 @@ export default function Page2() {
                 className="overflow-hidden rounded-2xl border border-blue-100 bg-white shadow-sm"
               >
                 <div className="h-44 sm:h-52 bg-brand-soft overflow-hidden">
-                  <div className="h-full w-full bg-brand-soft" />
+                  <img src={b.image} className="h-full w-full object-cover" />
                 </div>
 
                 <div className="p-5">

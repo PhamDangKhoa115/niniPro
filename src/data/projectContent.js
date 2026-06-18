@@ -174,12 +174,12 @@ export const project = {
       blocks: [
         {
           title: "CHUYẾN ĐI TRAO QUÀ",
-          image: "/Vision.png",
+          image: "/event3/CDCQ.jpg",
           desc: "Mô tả hoạt động.",
         },
         {
           title: "GALA TỔNG KẾT",
-          image: "/Vision.png",
+          image: "/white.png",
           desc: "Mô tả hoạt động...",
         },
       ],

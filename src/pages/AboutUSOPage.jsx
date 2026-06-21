@@ -16,7 +16,7 @@ export default function AboutUSOPage() {
           className="mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-10 py-10 sm:py-14"
         >
           <h1 className="text-center text-4xl sm:text-5xl font-['Times_New_Roman'] font-bold tracking-wide text-brandText">
-            VỀ USO ORGANIZATION
+            VỀ US-ORGANIZATION
           </h1>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[1fr_1.1fr] items-center">

@@ -409,7 +409,7 @@ export default function Navbar() {
                                   : "text-brandText/90 hover:text-brandText hover:bg-brand/10",
                               ].join(" ")}
                             >
-                              VỀ USO ORGANIZATION
+                              VỀ US-ORGANIZATION
                             </NavLink>
                           </div>
                         </div>
